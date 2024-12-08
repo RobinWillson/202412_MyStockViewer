@@ -1,4 +1,11 @@
 /**
+ * 2024/12/08
+ * work very well
+ * 測試抓3個檔案, 11個月的資料
+ * 速度很快, 很完整
+ */
+
+/**
  * retrieve price from api
  * https://openapi.twse.com.tw/
  * 台灣證券交易所的API
@@ -22,15 +29,21 @@ async function main() {
     let fileNameArr = fileName.split('_');
     let stockCode = fileNameArr[0];
     console.log('stockCode:', stockCode);
-    continue;
     let priceData = await retrieveFileData(filePath);
     let { earliestDate, latestDate } = priceDataRange(priceData);
     console.log('priceData.length :', priceData.length);
     console.log('earliestDate :', earliestDate);
     console.log('latestDate :', latestDate);
-    let data = await priceRetrieve(stockCode, earliestDate, latestDate);
-    console.log('data:', data);
-    return;
+    let apiData = await priceRetrieve(stockCode, earliestDate, latestDate);
+    let combinedData = [...apiData, ...priceData];
+    let uniqueData = Array.from(new Map(combinedData.map(item => [item[0], item])).values());
+    uniqueData.sort((a, b) => new Date(a[0]) - new Date(b[0]));
+    await fs.writeFile(filePath, JSON.stringify(uniqueData));
+    //------
+    let priceData2 = await retrieveFileData(filePath);
+    console.log('priceData2.length :', priceData2.length);
+    console.log(`File ${fileName} updated.`);
+    console.log('--------------------');
   }
 }
 
@@ -54,6 +67,9 @@ function priceDataRange(priceData) {
 }
 
 async function priceRetrieve(stockCode, earliestDate, latestDate) {
+  //因為由API取得歷史檔案很快
+  //直接取得所有的歷史檔案,
+  //不用想怎麼去維護歷史檔案
   let result = [];
   let range1 = [];
   let range2 = [];
@@ -75,18 +91,19 @@ async function priceRetrieve(stockCode, earliestDate, latestDate) {
       range2 = [rng2_EarliestDate, rng2_LatestDate];
     }
   }
+  // console.log('range1:', range1);
+  // console.log('range2:', range2);
   //======
   if (range1.length > 0) {
     let data = await dataFetch(stockCode, range1[0], range1[1]);
-    result.push(data);
+    result.push(...data);
   }
   if (range2.length > 0) {
     let data = await dataFetch(stockCode, range2[0], range2[1]);
-    result.push(data);
+    result.push(...data);
   }
-  return;
   //======
-
+  return result;
 }
 async function dataFetch(stockCode, startDate, endDate) {
   let result = [];
@@ -106,7 +123,6 @@ async function dataFetch(stockCode, startDate, endDate) {
     let rawData = await response.json();
     rawData = rawData.data;
     for (let i = 0; i < rawData.length; i++) {
-      rawData[i][0] = dateTranslate(rawData[i][0]);
       // let fields= [
       //   "0.日期",
       //   "1.成交股數",
@@ -133,9 +149,9 @@ async function dataFetch(stockCode, startDate, endDate) {
         highPrice,
         lowPrice,
         closePrice,
-        tradeValue,
-        tradeShares,
-        tradeCount,
+        tradeValue,//成交金額
+        tradeShares,//成交股數
+        tradeCount,//成交筆數
       ];
       result.push(newData);
     }
@@ -147,6 +163,9 @@ async function dataFetch(stockCode, startDate, endDate) {
 function dateTranslate(date) {
   //input date format: 110/01/01
   let [year, month, day] = date.split('/');
+  if (!year || !month || !day) {
+    throw new Error(`Invalid date format: ${date}`);
+  }
   year = (parseInt(year) + 1911).toString();
   return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
 }

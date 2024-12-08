@@ -26,4 +26,10 @@ And Each project has it's own git.
 Thus I can sync necessary parts only and need no need to install too much node_module.
 
 
+202412_MyStockViewer
+├── A01_StockPrice_test
+├── BackEnd
+│   ├── server.js
+
+
 
