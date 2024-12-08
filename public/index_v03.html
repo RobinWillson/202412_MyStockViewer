@@ -1,4 +1,3 @@
-<!-- from example > candleStick -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,17 +26,89 @@
     <div id="container_2">container_2</div>
 
     <script type="text/javascript">
+      // Synchronize crosshairs and tooltips
+      Highcharts.Pointer.prototype.reset = function () {
+        return undefined;
+      };
+
+      function syncExtremes(e) {
+        var thisChart = this.chart;
+
+        if (e.trigger !== "syncExtremes") {
+          Highcharts.charts.forEach(function (chart) {
+            if (chart !== thisChart) {
+              if (chart.xAxis[0].setExtremes) {
+                chart.xAxis[0].setExtremes(e.min, e.max, undefined, false, {
+                  trigger: "syncExtremes",
+                });
+              }
+            }
+          });
+        }
+      }
+
+      function syncTooltip(container, charts) {
+        container.addEventListener("mousemove", function (e) {
+          var point, event, chart, i;
+
+          for (i = 0; i < charts.length; i++) {
+            chart = charts[i];
+            event = chart.pointer.normalize(e);
+            point = chart.series[0].searchPoint(event, true);
+
+            if (point) {
+              point.highlight(e);
+            }
+          }
+        });
+      }
+
+      Highcharts.Point.prototype.highlight = function (event) {
+        this.onMouseOver();
+        this.series.chart.tooltip.refresh(this);
+        this.series.chart.xAxis[0].drawCrosshair(event, this);
+      };
+
       (async () => {
         // Fetch data for the first chart
-        const data1 = await fetch(
-          "https://demo-live-data.highcharts.com/aapl-ohlc.json"
-        ).then((response) => response.json());
-        console.log("data1 : ", data1);
+        let response;
+        response = await fetch("http://localhost:3000/stockPrice/1103");
+        const data10 = await response.json();
+        let data1 = data10.map((item) => {
+          const timestamp = new Date(item[0]).getTime();
+          const values = item.slice(1, 5).map(Number);
+          return [timestamp, ...values];
+        });
 
         // Fetch data for the second chart
-        const data2 = await fetch(
-          "https://demo-live-data.highcharts.com/aapl-ohlc.json"
-        ).then((response) => response.json());
+        response = await fetch("http://localhost:3000/stockPrice/1104");
+        const data20 = await response.json();
+        let data2 = data20.map((item) => {
+          const timestamp = new Date(item[0]).getTime();
+          const values = item.slice(1, 5).map(Number);
+          return [timestamp, ...values];
+        });
+
+        // Create a unified date range
+        const allDates = new Set([
+          ...data1.map((item) => item[0]),
+          ...data2.map((item) => item[0]),
+        ]);
+        const sortedDates = Array.from(allDates).sort((a, b) => a - b);
+
+        // Fill in missing dates with null values
+        const fillMissingDates = (data, dates) => {
+          const dateMap = new Map(data.map((item) => [item[0], item]));
+          return dates.map(
+            (date) => dateMap.get(date) || [date, null, null, null, null]
+          );
+        };
+
+        data1 = fillMissingDates(data1, sortedDates);
+        data2 = fillMissingDates(data2, sortedDates);
+
+        console.log("data1 : ", data1);
+        console.log("data2 : ", data2);
 
         // Create the navigator chart
         Highcharts.stockChart("navigator-container", {
@@ -68,6 +139,7 @@
                       data: data1,
                       dataGrouping: {
                         units: [
+                          ["day", [1]],
                           ["week", [1]],
                           ["month", [1, 2, 3, 4, 6]],
                         ],
@@ -76,17 +148,7 @@
                   ],
                   xAxis: {
                     events: {
-                      setExtremes: function (e) {
-                        if (e.trigger !== "sync") {
-                          navigatorChart.xAxis[0].setExtremes(
-                            e.min,
-                            e.max,
-                            undefined,
-                            false,
-                            { trigger: "sync" }
-                          );
-                        }
-                      },
+                      setExtremes: syncExtremes,
                     },
                   },
                 });
@@ -107,8 +169,10 @@
                     {
                       type: "candlestick",
                       data: data2,
+                      connectNulls: true,
                       dataGrouping: {
                         units: [
+                          ["day", [1]],
                           ["week", [1]],
                           ["month", [1, 2, 3, 4, 6]],
                         ],
@@ -117,17 +181,7 @@
                   ],
                   xAxis: {
                     events: {
-                      setExtremes: function (e) {
-                        if (e.trigger !== "sync") {
-                          navigatorChart.xAxis[0].setExtremes(
-                            e.min,
-                            e.max,
-                            undefined,
-                            false,
-                            { trigger: "sync" }
-                          );
-                        }
-                      },
+                      setExtremes: syncExtremes,
                     },
                   },
                 });
@@ -135,30 +189,32 @@
                 // Sync the navigator with the charts
                 navigatorChart.xAxis[0].update({
                   events: {
-                    setExtremes: function (e) {
-                      if (e.trigger !== "sync") {
-                        Highcharts.charts.forEach(function (chart) {
-                          if (chart !== navigatorChart) {
-                            chart.xAxis[0].setExtremes(
-                              e.min,
-                              e.max,
-                              undefined,
-                              false,
-                              { trigger: "sync" }
-                            );
-                          }
-                        });
-                      }
-                    },
+                    setExtremes: syncExtremes,
                   },
                 });
+                // Set initial extremes to cover the full date range
+                const minDate = sortedDates[0];
+                const maxDate = sortedDates[sortedDates.length - 1];
+                chart1.xAxis[0].setExtremes(minDate, maxDate);
+                chart2.xAxis[0].setExtremes(minDate, maxDate);
+
+                // Sync tooltips and crosshairs
+                syncTooltip(document.getElementById("container"), [
+                  chart1,
+                  chart2,
+                ]);
+                syncTooltip(document.getElementById("container_2"), [
+                  chart1,
+                  chart2,
+                ]);
               },
             },
           },
           series: [
             {
               data: data1, // Use data1 for the navigator
-              visible: true, // Ensure the data is visible
+              connectNulls: true,
+              visible: false, // Ensure the data is visible
             },
           ],
           navigator: {

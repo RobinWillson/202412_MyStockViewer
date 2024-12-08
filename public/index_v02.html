@@ -1,12 +1,12 @@
-<!-- from example > candleStick -->
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Highstock Example</title>
-
-    <style type="text/css">
+    <meta charset="UTF-8" />
+    <title>Highcharts Example</title>
+    <script src="./code/highstock.js"></script>
+    <script src="./code/modules/exporting.js"></script>
+    <script src="./code/modules/accessibility.js"></script>
+    <style>
       #container,
       #container_2 {
         height: 300px;
@@ -19,9 +19,6 @@
     </style>
   </head>
   <body>
-    <script src="./code/highstock.js"></script>
-    <script src="./code/modules/exporting.js"></script>
-    <script src="./code/modules/accessibility.js"></script>
     <div id="navigator-container">navigator-container</div>
     <div id="container">container</div>
     <div id="container_2">container_2</div>
@@ -31,11 +28,42 @@
         // Fetch data for the first chart
         let response;
         response = await fetch("http://localhost:3000/stockPrice/1103");
-        const data1 = await response.json();
+        const data10 = await response.json();
+        let data1 = data10.map((item) => {
+          const timestamp = new Date(item[0]).getTime();
+          const values = item.slice(1, 5).map(Number);
+          return [timestamp, ...values];
+        });
 
         // Fetch data for the second chart
         response = await fetch("http://localhost:3000/stockPrice/1104");
-        const data2 = await response.json();
+        const data20 = await response.json();
+        let data2 = data20.map((item) => {
+          const timestamp = new Date(item[0]).getTime();
+          const values = item.slice(1, 5).map(Number);
+          return [timestamp, ...values];
+        });
+
+        // Create a unified date range
+        const allDates = new Set([
+          ...data1.map((item) => item[0]),
+          ...data2.map((item) => item[0]),
+        ]);
+        const sortedDates = Array.from(allDates).sort((a, b) => a - b);
+
+        // Fill in missing dates with null values
+        const fillMissingDates = (data, dates) => {
+          const dateMap = new Map(data.map((item) => [item[0], item]));
+          return dates.map(
+            (date) => dateMap.get(date) || [date, null, null, null, null]
+          );
+        };
+
+        data1 = fillMissingDates(data1, sortedDates);
+        data2 = fillMissingDates(data2, sortedDates);
+
+        console.log("data1 : ", data1);
+        console.log("data2 : ", data2);
 
         // Create the navigator chart
         Highcharts.stockChart("navigator-container", {
@@ -45,11 +73,11 @@
             marginRight: 40,
             zoomType: "x",
             events: {
-              load: function () {
+              load: async function () {
                 const navigatorChart = this;
 
                 // Create the first chart
-                const chart1 = Highcharts.stockChart("container", {
+                const chart1 = await Highcharts.stockChart("container", {
                   rangeSelector: {
                     selected: 1,
                     enabled: false, // Disable the range selector for this chart
@@ -90,7 +118,7 @@
                 });
 
                 // Create the second chart
-                const chart2 = Highcharts.stockChart("container_2", {
+                const chart2 = await Highcharts.stockChart("container_2", {
                   rangeSelector: {
                     selected: 1,
                     enabled: false, // Disable the range selector for this chart
@@ -150,6 +178,12 @@
                     },
                   },
                 });
+
+                // Set initial extremes to cover the full date range
+                const minDate = sortedDates[0];
+                const maxDate = sortedDates[sortedDates.length - 1];
+                chart1.xAxis[0].setExtremes(minDate, maxDate);
+                chart2.xAxis[0].setExtremes(minDate, maxDate);
               },
             },
           },
