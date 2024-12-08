@@ -1,0 +1,4099 @@
+{
+  "Info": "短沖戰神 楊雲翔 分類清單",
+  "清單": [
+    "DRAM",
+    "IC封裝測試設備",
+    "IC基板",
+    "IC設計",
+    "IC測試",
+    "IC感測",
+    "IC零組件通路商",
+    "IC製造",
+    "LED",
+    "UPS",
+    "二極體",
+    "工業用紙",
+    "不鏽鋼產品",
+    "化學工業",
+    "太陽能",
+    "加工絲",
+    "半導體設備",
+    "石化",
+    "石油",
+    "成衣",
+    "自動化設備",
+    "汽機車",
+    "放款",
+    "板卡",
+    "矽晶圓",
+    "金控",
+    "玻纖布",
+    "食品加工",
+    "砷化鎵代工",
+    "紡織原料",
+    "航天軍工",
+    "航運其他",
+    "貨櫃航運",
+    "軟體遊戲",
+    "散裝航運",
+    "散熱模組",
+    "晶圓代工",
+    "無線通訊設備通訊設備",
+    "塑膠原料",
+    "零售",
+    "電子化工品",
+    "電子其他",
+    "電子零組件",
+    "電腦及週邊產品",
+    "飼料",
+    "網路設備",
+    "廢棄物處理",
+    "影像感測元件",
+    "橡膠工業",
+    "鋼結構",
+    "營造工程",
+    "顯示器"
+  ],
+  "IC設計": [
+    {
+      "sCode": 2363,
+      "sName": "矽統"
+    },
+    {
+      "sCode": 2379,
+      "sName": "瑞昱"
+    },
+    {
+      "sCode": 2388,
+      "sName": "威盛"
+    },
+    {
+      "sCode": 2401,
+      "sName": "凌陽"
+    },
+    {
+      "sCode": 2436,
+      "sName": "偉詮電"
+    },
+    {
+      "sCode": 2454,
+      "sName": "聯發科"
+    },
+    {
+      "sCode": 2458,
+      "sName": "義隆"
+    },
+    {
+      "sCode": 3006,
+      "sName": "晶豪科"
+    },
+    {
+      "sCode": 3014,
+      "sName": "聯陽"
+    },
+    {
+      "sCode": 3035,
+      "sName": "智原"
+    },
+    {
+      "sCode": 3041,
+      "sName": "揚智"
+    },
+    {
+      "sCode": 3059,
+      "sName": "華晶科"
+    },
+    {
+      "sCode": 3094,
+      "sName": "聯傑"
+    },
+    {
+      "sCode": 3169,
+      "sName": "亞信"
+    },
+    {
+      "sCode": 3257,
+      "sName": "虹冠電"
+    },
+    {
+      "sCode": 3259,
+      "sName": "鑫創"
+    },
+    {
+      "sCode": 3268,
+      "sName": "海德威"
+    },
+    {
+      "sCode": 3288,
+      "sName": "點晶"
+    },
+    {
+      "sCode": 3438,
+      "sName": "類比科"
+    },
+    {
+      "sCode": 3443,
+      "sName": "創意"
+    },
+    {
+      "sCode": 3556,
+      "sName": "禾瑞亞"
+    },
+    {
+      "sCode": 3588,
+      "sName": "通嘉"
+    },
+    {
+      "sCode": 3661,
+      "sName": "世芯-KY"
+    },
+    {
+      "sCode": 4952,
+      "sName": "凌通"
+    },
+    {
+      "sCode": 4966,
+      "sName": "譜瑞-KY"
+    },
+    {
+      "sCode": 4968,
+      "sName": "立積"
+    },
+    {
+      "sCode": 5236,
+      "sName": "凌陽創新"
+    },
+    {
+      "sCode": 5269,
+      "sName": "祥碩"
+    },
+    {
+      "sCode": 5272,
+      "sName": "笙科"
+    },
+    {
+      "sCode": 5274,
+      "sName": "信驊"
+    },
+    {
+      "sCode": 5302,
+      "sName": "太欣"
+    },
+    {
+      "sCode": 5314,
+      "sName": "世紀"
+    },
+    {
+      "sCode": 5351,
+      "sName": "鈺創"
+    },
+    {
+      "sCode": 5468,
+      "sName": "凱鈺"
+    },
+    {
+      "sCode": 5471,
+      "sName": "松翰"
+    },
+    {
+      "sCode": 5487,
+      "sName": "通泰"
+    },
+    {
+      "sCode": 6103,
+      "sName": "合邦"
+    },
+    {
+      "sCode": 6104,
+      "sName": "創惟"
+    },
+    {
+      "sCode": 6129,
+      "sName": "普誠"
+    },
+    {
+      "sCode": 6138,
+      "sName": "茂達"
+    },
+    {
+      "sCode": 6198,
+      "sName": "凌泰"
+    },
+    {
+      "sCode": 6229,
+      "sName": "研通"
+    },
+    {
+      "sCode": 6233,
+      "sName": "旺玖"
+    },
+    {
+      "sCode": 6291,
+      "sName": "沛亨"
+    },
+    {
+      "sCode": 6411,
+      "sName": "晶焱"
+    },
+    {
+      "sCode": 6415,
+      "sName": "矽力-KY"
+    },
+    {
+      "sCode": 6457,
+      "sName": "紘康"
+    },
+    {
+      "sCode": 6485,
+      "sName": "點序"
+    },
+    {
+      "sCode": 6531,
+      "sName": "愛普"
+    },
+    {
+      "sCode": 6568,
+      "sName": "宏觀"
+    },
+    {
+      "sCode": 6594,
+      "sName": "展匯科"
+    },
+    {
+      "sCode": 6643,
+      "sName": "M31"
+    },
+    {
+      "sCode": 6679,
+      "sName": "鈺太"
+    },
+    {
+      "sCode": 6684,
+      "sName": "安格"
+    },
+    {
+      "sCode": 6756,
+      "sName": "威鋒電子"
+    },
+    {
+      "sCode": 8024,
+      "sName": "佑華"
+    },
+    {
+      "sCode": 8040,
+      "sName": "九暘"
+    },
+    {
+      "sCode": 8054,
+      "sName": "安國"
+    },
+    {
+      "sCode": 8081,
+      "sName": "致新"
+    },
+    {
+      "sCode": 8299,
+      "sName": "群聯"
+    }
+  ],
+  "IC封裝測試設備": [
+    {
+      "sCode": 2351,
+      "sName": "順德"
+    },
+    {
+      "sCode": 5483,
+      "sName": "百容"
+    },
+    {
+      "sCode": 2486,
+      "sName": "一詮"
+    },
+    {
+      "sCode": 3178,
+      "sName": "公準"
+    },
+    {
+      "sCode": 3580,
+      "sName": "友威科"
+    },
+    {
+      "sCode": 5285,
+      "sName": "界霖"
+    },
+    {
+      "sCode": 6217,
+      "sName": "中探針"
+    },
+    {
+      "sCode": 6223,
+      "sName": "旺矽"
+    },
+    {
+      "sCode": 6510,
+      "sName": "精測"
+    },
+    {
+      "sCode": 6515,
+      "sName": "穎崴"
+    },
+    {
+      "sCode": 6516,
+      "sName": "勤崴國際"
+    },
+    {
+      "sCode": 6548,
+      "sName": "長科"
+    }
+  ],
+  "IC基板": [
+    {
+      "sCode": 3037,
+      "sName": "欣興"
+    },
+    {
+      "sCode": 3189,
+      "sName": "景碩"
+    },
+    {
+      "sCode": 6552,
+      "sName": "易華電"
+    },
+    {
+      "sCode": 8046,
+      "sName": "南電"
+    }
+  ],
+  "IC製造": [
+    {
+      "sCode": 2338,
+      "sName": "光罩"
+    },
+    {
+      "sCode": 6287,
+      "sName": "元隆"
+    }
+  ],
+  "二極體": [
+    {
+      "sCode": 2302,
+      "sName": "麗正"
+    },
+    {
+      "sCode": 2434,
+      "sName": "統懋"
+    },
+    {
+      "sCode": 2481,
+      "sName": "強茂"
+    },
+    {
+      "sCode": 3536,
+      "sName": "誠創"
+    },
+    {
+      "sCode": 3675,
+      "sName": "德微"
+    },
+    {
+      "sCode": 5425,
+      "sName": "台半"
+    },
+    {
+      "sCode": 6573,
+      "sName": "虹揚-KY"
+    },
+    {
+      "sCode": 8255,
+      "sName": "朋程"
+    }
+  ],
+  "矽晶圓": [
+    {
+      "sCode": 3016,
+      "sName": "嘉晶"
+    },
+    {
+      "sCode": 3532,
+      "sName": "台勝科"
+    },
+    {
+      "sCode": 3707,
+      "sName": "漢磊"
+    },
+    {
+      "sCode": 5483,
+      "sName": "中美晶"
+    },
+    {
+      "sCode": 6182,
+      "sName": "合晶"
+    },
+    {
+      "sCode": 6488,
+      "sName": "環球晶"
+    }
+  ],
+  "板卡": [
+    {
+      "sCode": 2376,
+      "sName": "技嘉"
+    },
+    {
+      "sCode": 2377,
+      "sName": "微星"
+    },
+    {
+      "sCode": 2399,
+      "sName": "映泰"
+    },
+    {
+      "sCode": 2465,
+      "sName": "麗臺"
+    },
+    {
+      "sCode": 3515,
+      "sName": "華擎"
+    }
+  ],
+  "太陽能": [
+    {
+      "sCode": 1742,
+      "sName": "台蠟"
+    },
+    {
+      "sCode": 2406,
+      "sName": "國碩"
+    },
+    {
+      "sCode": 3073,
+      "sName": "天方能源"
+    },
+    {
+      "sCode": 3089,
+      "sName": "億杰"
+    },
+    {
+      "sCode": 3576,
+      "sName": "聯合再生"
+    },
+    {
+      "sCode": 3663,
+      "sName": "鑫科"
+    },
+    {
+      "sCode": 3686,
+      "sName": "達能"
+    },
+    {
+      "sCode": 3691,
+      "sName": "碩禾"
+    },
+    {
+      "sCode": 3713,
+      "sName": "新晶投控"
+    },
+    {
+      "sCode": 4934,
+      "sName": "太極"
+    },
+    {
+      "sCode": 6125,
+      "sName": "廣運"
+    },
+    {
+      "sCode": 6244,
+      "sName": "茂迪"
+    },
+    {
+      "sCode": 6443,
+      "sName": "元晶"
+    },
+    {
+      "sCode": 6477,
+      "sName": "安集"
+    },
+    {
+      "sCode": 6538,
+      "sName": "倉和"
+    }
+  ],
+  "貨櫃航運": [
+    {
+      "sCode": 2603,
+      "sName": "長榮"
+    },
+    {
+      "sCode": 2609,
+      "sName": "陽明"
+    },
+    {
+      "sCode": 2615,
+      "sName": "萬海"
+    },
+    {
+      "sCode": 5603,
+      "sName": "陸海"
+    }
+  ],
+  "散裝航運": [
+    {
+      "sCode": 2605,
+      "sName": "新興"
+    },
+    {
+      "sCode": 2606,
+      "sName": "裕民"
+    },
+    {
+      "sCode": 2612,
+      "sName": "中航"
+    },
+    {
+      "sCode": 2617,
+      "sName": "台航"
+    },
+    {
+      "sCode": 2641,
+      "sName": "正德"
+    },
+    {
+      "sCode": 5608,
+      "sName": "四維航"
+    }
+  ],
+  "航運其他": [
+    {
+      "sCode": 2208,
+      "sName": "台船"
+    },
+    {
+      "sCode": 2607,
+      "sName": "榮運"
+    },
+    {
+      "sCode": 2608,
+      "sName": "嘉里大榮"
+    },
+    {
+      "sCode": 2610,
+      "sName": "華航"
+    },
+    {
+      "sCode": 2611,
+      "sName": "志信"
+    },
+    {
+      "sCode": 2613,
+      "sName": "中櫃"
+    },
+    {
+      "sCode": 2618,
+      "sName": "長榮航"
+    },
+    {
+      "sCode": 2633,
+      "sName": "台灣高鐵"
+    },
+    {
+      "sCode": 2636,
+      "sName": "台驊投控"
+    },
+    {
+      "sCode": 2637,
+      "sName": "慧洋-KY"
+    },
+    {
+      "sCode": 2640,
+      "sName": "大車隊"
+    },
+    {
+      "sCode": 2642,
+      "sName": "宅配通"
+    },
+    {
+      "sCode": 2643,
+      "sName": "捷迅"
+    },
+    {
+      "sCode": 5601,
+      "sName": "台聯櫃"
+    },
+    {
+      "sCode": 5607,
+      "sName": "遠雄港"
+    },
+    {
+      "sCode": 5609,
+      "sName": "中菲行"
+    },
+    {
+      "sCode": 8367,
+      "sName": "建新國際"
+    }
+  ],
+  "LED": [
+    {
+      "sCode": 2340,
+      "sName": "光磊"
+    },
+    {
+      "sCode": 2393,
+      "sName": "億光"
+    },
+    {
+      "sCode": 2429,
+      "sName": "銘旺科"
+    },
+    {
+      "sCode": 2491,
+      "sName": "吉祥全"
+    },
+    {
+      "sCode": 3031,
+      "sName": "佰鴻"
+    },
+    {
+      "sCode": 3066,
+      "sName": "李洲"
+    },
+    {
+      "sCode": 3346,
+      "sName": "麗清"
+    },
+    {
+      "sCode": 3437,
+      "sName": "榮創"
+    },
+    {
+      "sCode": 3591,
+      "sName": "艾笛森"
+    },
+    {
+      "sCode": 3714,
+      "sName": "富采"
+    },
+    {
+      "sCode": 5281,
+      "sName": "大峽谷-KY"
+    },
+    {
+      "sCode": 6164,
+      "sName": "華興"
+    },
+    {
+      "sCode": 6168,
+      "sName": "宏齊"
+    },
+    {
+      "sCode": 6226,
+      "sName": "光鼎"
+    },
+    {
+      "sCode": 6246,
+      "sName": "臺龍"
+    },
+    {
+      "sCode": 6288,
+      "sName": "聯嘉"
+    },
+    {
+      "sCode": 8104,
+      "sName": "錸寶"
+    },
+    {
+      "sCode": 8111,
+      "sName": "立碁"
+    }
+  ],
+  "電子其他": [
+    {
+      "sCode": 2373,
+      "sName": "震旦行"
+    },
+    {
+      "sCode": 2380,
+      "sName": "虹光"
+    },
+    {
+      "sCode": 2461,
+      "sName": "光群雷"
+    },
+    {
+      "sCode": 2488,
+      "sName": "漢平"
+    },
+    {
+      "sCode": 3067,
+      "sName": "全域"
+    },
+    {
+      "sCode": 3128,
+      "sName": "昇銳"
+    },
+    {
+      "sCode": 3285,
+      "sName": "微端"
+    },
+    {
+      "sCode": 3494,
+      "sName": "誠研"
+    },
+    {
+      "sCode": 3504,
+      "sName": "揚明光"
+    },
+    {
+      "sCode": 3611,
+      "sName": "鼎翰"
+    },
+    {
+      "sCode": 3701,
+      "sName": "大眾控"
+    },
+    {
+      "sCode": 3741,
+      "sName": "泓瀚"
+    },
+    {
+      "sCode": 4915,
+      "sName": "致伸"
+    },
+    {
+      "sCode": 4987,
+      "sName": "科誠"
+    }
+  ],
+  "晶圓代工": [
+    {
+      "sCode": 1560,
+      "sName": "中砂"
+    },
+    {
+      "sCode": 2303,
+      "sName": "聯電"
+    },
+    {
+      "sCode": 2330,
+      "sName": "台積電"
+    },
+    {
+      "sCode": 2342,
+      "sName": "茂矽"
+    },
+    {
+      "sCode": 4991,
+      "sName": "環宇-KY"
+    },
+    {
+      "sCode": 5347,
+      "sName": "世界"
+    },
+    {
+      "sCode": 8028,
+      "sName": "昇陽半導體"
+    }
+  ],
+  "工業用紙": [
+    {
+      "sCode": 1904,
+      "sName": "正隆"
+    },
+    {
+      "sCode": 1905,
+      "sName": "華紙"
+    },
+    {
+      "sCode": 1906,
+      "sName": "寶隆"
+    },
+    {
+      "sCode": 1907,
+      "sName": "永豐餘"
+    },
+    {
+      "sCode": 1909,
+      "sName": "榮成"
+    }
+  ],
+  "軟體遊戲": [
+    {
+      "sCode": 3064,
+      "sName": "泰偉"
+    },
+    {
+      "sCode": 3083,
+      "sName": "網龍"
+    },
+    {
+      "sCode": 3086,
+      "sName": "華義"
+    },
+    {
+      "sCode": 3293,
+      "sName": "鈊象"
+    },
+    {
+      "sCode": 3546,
+      "sName": "宇峻"
+    },
+    {
+      "sCode": 3629,
+      "sName": "地心引力"
+    },
+    {
+      "sCode": 3687,
+      "sName": "歐買尬"
+    },
+    {
+      "sCode": 4946,
+      "sName": "辣椒"
+    },
+    {
+      "sCode": 4994,
+      "sName": "傳奇"
+    },
+    {
+      "sCode": 5478,
+      "sName": "智冠"
+    },
+    {
+      "sCode": 6111,
+      "sName": "大宇資"
+    },
+    {
+      "sCode": 6169,
+      "sName": "昱泉"
+    },
+    {
+      "sCode": 6180,
+      "sName": "橘子"
+    },
+    {
+      "sCode": 6404,
+      "sName": "通訊-KY"
+    },
+    {
+      "sCode": 6482,
+      "sName": "弘煜科"
+    },
+    {
+      "sCode": 6542,
+      "sName": "隆中"
+    }
+  ],
+  "石油": [
+    {
+      "sCode": 2616,
+      "sName": "山隆"
+    },
+    {
+      "sCode": 2904,
+      "sName": "匯橋"
+    },
+    {
+      "sCode": 6505,
+      "sName": "台塑化"
+    },
+    {
+      "sCode": 8927,
+      "sName": "北基"
+    },
+    {
+      "sCode": 9937,
+      "sName": "全國"
+    }
+  ],
+  "零售": [
+    {
+      "sCode": 1216,
+      "sName": "統一"
+    },
+    {
+      "sCode": 2443,
+      "sName": "昶虹"
+    },
+    {
+      "sCode": 2601,
+      "sName": "益航"
+    },
+    {
+      "sCode": 2614,
+      "sName": "東森"
+    },
+    {
+      "sCode": 2901,
+      "sName": "欣欣"
+    },
+    {
+      "sCode": 2903,
+      "sName": "遠百"
+    },
+    {
+      "sCode": 2910,
+      "sName": "統領"
+    },
+    {
+      "sCode": 2911,
+      "sName": "麗嬰房"
+    },
+    {
+      "sCode": 2912,
+      "sName": "統一超"
+    },
+    {
+      "sCode": 2915,
+      "sName": "潤泰全"
+    },
+    {
+      "sCode": 2939,
+      "sName": "凱羿-KY"
+    },
+    {
+      "sCode": 5903,
+      "sName": "全家"
+    },
+    {
+      "sCode": 5904,
+      "sName": "寶雅"
+    },
+    {
+      "sCode": 5907,
+      "sName": "大洋-KY"
+    },
+    {
+      "sCode": 6195,
+      "sName": "詩肯"
+    },
+    {
+      "sCode": 8433,
+      "sName": "弘帆"
+    }
+  ],
+  "UPS": [
+    {
+      "sCode": 3043,
+      "sName": "科風"
+    },
+    {
+      "sCode": 6409,
+      "sName": "旭隼"
+    }
+  ],
+  "食品加工": [
+    {
+      "sCode": 1203,
+      "sName": "味王"
+    },
+    {
+      "sCode": 1215,
+      "sName": "卜蜂"
+    },
+    {
+      "sCode": 1227,
+      "sName": "佳格"
+    },
+    {
+      "sCode": 1229,
+      "sName": "聯華"
+    },
+    {
+      "sCode": 1231,
+      "sName": "聯華食"
+    },
+    {
+      "sCode": 1232,
+      "sName": "大統益"
+    },
+    {
+      "sCode": 1236,
+      "sName": "宏亞"
+    },
+    {
+      "sCode": 1258,
+      "sName": "其祥KY"
+    },
+    {
+      "sCode": 1264,
+      "sName": "德麥"
+    },
+    {
+      "sCode": 1702,
+      "sName": "南僑"
+    },
+    {
+      "sCode": 4205,
+      "sName": "中華食"
+    },
+    {
+      "sCode": 4207,
+      "sName": "環泰"
+    },
+    {
+      "sCode": 8905,
+      "sName": "裕國"
+    }
+  ],
+  "航天軍工": [
+    {
+      "sCode": 2630,
+      "sName": "亞航"
+    },
+    {
+      "sCode": 2634,
+      "sName": "漢翔"
+    },
+    {
+      "sCode": 3004,
+      "sName": "豐達科"
+    },
+    {
+      "sCode": 4536,
+      "sName": "拓凱"
+    },
+    {
+      "sCode": 4541,
+      "sName": "晟田"
+    },
+    {
+      "sCode": 4566,
+      "sName": "時碩工業"
+    },
+    {
+      "sCode": 4572,
+      "sName": "駐龍"
+    },
+    {
+      "sCode": 4916,
+      "sName": "事欣科"
+    },
+    {
+      "sCode": 5284,
+      "sName": "jppKY"
+    },
+    {
+      "sCode": 8222,
+      "sName": "寶一"
+    }
+  ],
+  "金控": [
+    {
+      "sCode": 2880,
+      "sName": "華南金"
+    },
+    {
+      "sCode": 2881,
+      "sName": "富邦金"
+    },
+    {
+      "sCode": 2882,
+      "sName": "國泰金"
+    },
+    {
+      "sCode": 2883,
+      "sName": "開發金"
+    },
+    {
+      "sCode": 2884,
+      "sName": "玉山金"
+    },
+    {
+      "sCode": 2885,
+      "sName": "元大金"
+    },
+    {
+      "sCode": 2886,
+      "sName": "兆豐金"
+    },
+    {
+      "sCode": 2887,
+      "sName": "台新金"
+    },
+    {
+      "sCode": 2888,
+      "sName": "新光金"
+    },
+    {
+      "sCode": 2889,
+      "sName": "國票金"
+    },
+    {
+      "sCode": 2890,
+      "sName": "永豐金"
+    },
+    {
+      "sCode": 2891,
+      "sName": "中信金"
+    },
+    {
+      "sCode": 2892,
+      "sName": "第一金"
+    },
+    {
+      "sCode": 5880,
+      "sName": "合庫金"
+    }
+  ],
+  "消費性電子產品": [
+    {
+      "sCode": 1604,
+      "sName": "聲寶"
+    },
+    {
+      "sCode": 1614,
+      "sName": "三洋電"
+    },
+    {
+      "sCode": 1626,
+      "sName": "艾美特KY"
+    },
+    {
+      "sCode": 2312,
+      "sName": "金寶"
+    },
+    {
+      "sCode": 2317,
+      "sName": "鴻海"
+    },
+    {
+      "sCode": 2371,
+      "sName": "大同"
+    },
+    {
+      "sCode": 2498,
+      "sName": "宏達電"
+    },
+    {
+      "sCode": 3024,
+      "sName": "憶聲"
+    },
+    {
+      "sCode": 3454,
+      "sName": "晶睿"
+    },
+    {
+      "sCode": 3541,
+      "sName": "西柏"
+    },
+    {
+      "sCode": 4609,
+      "sName": "唐鋒"
+    },
+    {
+      "sCode": 4712,
+      "sName": "南璋"
+    },
+    {
+      "sCode": 4930,
+      "sName": "燦星網"
+    },
+    {
+      "sCode": 5283,
+      "sName": "禾聯碩"
+    },
+    {
+      "sCode": 6201,
+      "sName": "亞弘電"
+    },
+    {
+      "sCode": 6247,
+      "sName": "淇譽電"
+    },
+    {
+      "sCode": 6728,
+      "sName": "上洋"
+    },
+    {
+      "sCode": 6743,
+      "sName": "安普新"
+    },
+    {
+      "sCode": 8033,
+      "sName": "雷虎"
+    }
+  ],
+  "MCU": [
+    {
+      "sCode": 3122,
+      "sName": "笙泉"
+    },
+    {
+      "sCode": 3228,
+      "sName": "金麗科"
+    },
+    {
+      "sCode": 4919,
+      "sName": "新唐"
+    },
+    {
+      "sCode": 6202,
+      "sName": "盛群"
+    },
+    {
+      "sCode": 6494,
+      "sName": "九齊"
+    },
+    {
+      "sCode": 6716,
+      "sName": "應廣"
+    }
+  ],
+  "FLASH": [
+    {
+      "sCode": 2337,
+      "sName": "旺宏"
+    },
+    {
+      "sCode": 2344,
+      "sName": "華邦電"
+    },
+    {
+      "sCode": 3054,
+      "sName": "立萬利"
+    },
+    {
+      "sCode": 3260,
+      "sName": "威剛"
+    },
+    {
+      "sCode": 4967,
+      "sName": "十銓"
+    },
+    {
+      "sCode": 8084,
+      "sName": "巨虹"
+    }
+  ],
+  "顯示器": [
+    {
+      "sCode": 2352,
+      "sName": "佳世達"
+    },
+    {
+      "sCode": 2489,
+      "sName": "瑞軒"
+    },
+    {
+      "sCode": 4153,
+      "sName": "鈺緯"
+    },
+    {
+      "sCode": 5371,
+      "sName": "中光電"
+    },
+    {
+      "sCode": 8069,
+      "sName": "元太"
+    },
+    {
+      "sCode": 9912,
+      "sName": "偉聯"
+    }
+  ],
+  "光學鏡片與鏡頭": [
+    {
+      "sCode": 2374,
+      "sName": "佳能"
+    },
+    {
+      "sCode": 3008,
+      "sName": "大立光"
+    },
+    {
+      "sCode": 3019,
+      "sName": "亞光"
+    },
+    {
+      "sCode": 3362,
+      "sName": "先進光"
+    },
+    {
+      "sCode": 3406,
+      "sName": "玉晶光"
+    },
+    {
+      "sCode": 3441,
+      "sName": "聯一光"
+    },
+    {
+      "sCode": 3630,
+      "sName": "新鉅科"
+    },
+    {
+      "sCode": 4976,
+      "sName": "佳凌"
+    },
+    {
+      "sCode": 5230,
+      "sName": "雷笛克光學"
+    },
+    {
+      "sCode": 6209,
+      "sName": "今國光"
+    },
+    {
+      "sCode": 6668,
+      "sName": "中揚光"
+    }
+  ],
+  "電子零組件": [
+    {
+      "sCode": 2354,
+      "sName": "鴻準"
+    },
+    {
+      "sCode": 2385,
+      "sName": "群光"
+    },
+    {
+      "sCode": 2415,
+      "sName": "錩新"
+    },
+    {
+      "sCode": 2459,
+      "sName": "敦吉"
+    },
+    {
+      "sCode": 2466,
+      "sName": "冠西電"
+    },
+    {
+      "sCode": 2476,
+      "sName": "鉅祥"
+    },
+    {
+      "sCode": 2477,
+      "sName": "美隆電"
+    },
+    {
+      "sCode": 3095,
+      "sName": "及成"
+    },
+    {
+      "sCode": 3191,
+      "sName": "和進"
+    },
+    {
+      "sCode": 3230,
+      "sName": "錦明"
+    },
+    {
+      "sCode": 3290,
+      "sName": "東浦"
+    },
+    {
+      "sCode": 3294,
+      "sName": "英濟"
+    },
+    {
+      "sCode": 3311,
+      "sName": "閎暉"
+    },
+    {
+      "sCode": 3376,
+      "sName": "新日興"
+    },
+    {
+      "sCode": 3484,
+      "sName": "崧騰"
+    },
+    {
+      "sCode": 3508,
+      "sName": "位速"
+    },
+    {
+      "sCode": 3518,
+      "sName": "柏騰"
+    },
+    {
+      "sCode": 3548,
+      "sName": "兆利"
+    },
+    {
+      "sCode": 3593,
+      "sName": "力銘"
+    },
+    {
+      "sCode": 3607,
+      "sName": "谷崧"
+    },
+    {
+      "sCode": 3609,
+      "sName": "三一東林"
+    },
+    {
+      "sCode": 3679,
+      "sName": "新至陞"
+    },
+    {
+      "sCode": 4545,
+      "sName": "銘鈺"
+    },
+    {
+      "sCode": 4912,
+      "sName": "聯德控股KY"
+    },
+    {
+      "sCode": 4942,
+      "sName": "嘉彰"
+    },
+    {
+      "sCode": 4943,
+      "sName": "康控KY"
+    },
+    {
+      "sCode": 4999,
+      "sName": "鑫禾"
+    },
+    {
+      "sCode": 5223,
+      "sName": "安力KY"
+    },
+    {
+      "sCode": 5243,
+      "sName": "乙盛KY"
+    },
+    {
+      "sCode": 5356,
+      "sName": "協益"
+    },
+    {
+      "sCode": 5383,
+      "sName": "金利"
+    },
+    {
+      "sCode": 5392,
+      "sName": "能率"
+    },
+    {
+      "sCode": 5460,
+      "sName": "同協"
+    },
+    {
+      "sCode": 6136,
+      "sName": "富爾特"
+    },
+    {
+      "sCode": 6170,
+      "sName": "統振"
+    },
+    {
+      "sCode": 6259,
+      "sName": "百徽"
+    },
+    {
+      "sCode": 6283,
+      "sName": "淳安"
+    },
+    {
+      "sCode": 6284,
+      "sName": "佳邦"
+    },
+    {
+      "sCode": 7556,
+      "sName": "意德士"
+    },
+    {
+      "sCode": 8085,
+      "sName": "福華"
+    },
+    {
+      "sCode": 8091,
+      "sName": "翔名"
+    },
+    {
+      "sCode": 8096,
+      "sName": "擎亞"
+    },
+    {
+      "sCode": 8410,
+      "sName": "森田"
+    },
+    {
+      "sCode": 8499,
+      "sName": "鼎炫KY"
+    },
+    {
+      "sCode": 9188,
+      "sName": "精熙DR"
+    }
+  ],
+  "TFT_LCD": [
+    {
+      "sCode": 2409,
+      "sName": "友達"
+    },
+    {
+      "sCode": 3038,
+      "sName": "全台"
+    },
+    {
+      "sCode": 3049,
+      "sName": "和鑫"
+    },
+    {
+      "sCode": 3481,
+      "sName": "群創"
+    },
+    {
+      "sCode": 4729,
+      "sName": "熒茂"
+    },
+    {
+      "sCode": 5245,
+      "sName": "智晶"
+    },
+    {
+      "sCode": 5315,
+      "sName": "光聯"
+    },
+    {
+      "sCode": 6116,
+      "sName": "彩晶"
+    },
+    {
+      "sCode": 6456,
+      "sName": "GIS_KY"
+    },
+    {
+      "sCode": 8049,
+      "sName": "晶采"
+    },
+    {
+      "sCode": 8105,
+      "sName": "凌巨"
+    }
+  ],
+  "連接器": [
+    {
+      "sCode": 1333,
+      "sName": "恩得利"
+    },
+    {
+      "sCode": 2392,
+      "sName": "正崴"
+    },
+    {
+      "sCode": 2460,
+      "sName": "建通"
+    },
+    {
+      "sCode": 3003,
+      "sName": "健和興"
+    },
+    {
+      "sCode": 3202,
+      "sName": "樺晟"
+    },
+    {
+      "sCode": 3217,
+      "sName": "優群"
+    },
+    {
+      "sCode": 3224,
+      "sName": "三顧"
+    },
+    {
+      "sCode": 3272,
+      "sName": "東碩"
+    },
+    {
+      "sCode": 3432,
+      "sName": "台端"
+    },
+    {
+      "sCode": 3492,
+      "sName": "長盛"
+    },
+    {
+      "sCode": 3511,
+      "sName": "矽瑪"
+    },
+    {
+      "sCode": 3526,
+      "sName": "凡甲"
+    },
+    {
+      "sCode": 3533,
+      "sName": "嘉澤"
+    },
+    {
+      "sCode": 3605,
+      "sName": "宏致"
+    },
+    {
+      "sCode": 3646,
+      "sName": "艾恩特"
+    },
+    {
+      "sCode": 3689,
+      "sName": "湧德"
+    },
+    {
+      "sCode": 5457,
+      "sName": "宣德"
+    },
+    {
+      "sCode": 6158,
+      "sName": "禾昌"
+    },
+    {
+      "sCode": 6185,
+      "sName": "幃翔"
+    },
+    {
+      "sCode": 6279,
+      "sName": "胡連"
+    },
+    {
+      "sCode": 6418,
+      "sName": "詠昇"
+    },
+    {
+      "sCode": 8103,
+      "sName": "瀚荃"
+    },
+    {
+      "sCode": 8147,
+      "sName": "正淩"
+    }
+  ],
+  "DRAM": [
+    {
+      "sCode": 2408,
+      "sName": "南亞科"
+    },
+    {
+      "sCode": 2451,
+      "sName": "創見"
+    },
+    {
+      "sCode": 3555,
+      "sName": "重鵬"
+    },
+    {
+      "sCode": 4973,
+      "sName": "廣穎"
+    },
+    {
+      "sCode": 5386,
+      "sName": "青雲"
+    },
+    {
+      "sCode": 6265,
+      "sName": "方土昶"
+    },
+    {
+      "sCode": 8088,
+      "sName": "品安"
+    },
+    {
+      "sCode": 8271,
+      "sName": "宇曕"
+    }
+  ],
+  "筆記型電腦": [
+    {
+      "sCode": 2324,
+      "sName": "仁寶"
+    },
+    {
+      "sCode": 2353,
+      "sName": "宏碁"
+    },
+    {
+      "sCode": 2356,
+      "sName": "英業達"
+    },
+    {
+      "sCode": 2362,
+      "sName": "藍天"
+    },
+    {
+      "sCode": 2364,
+      "sName": "倫飛"
+    },
+    {
+      "sCode": 2382,
+      "sName": "廣達"
+    },
+    {
+      "sCode": 3213,
+      "sName": "茂訊"
+    }
+  ],
+  "網路設備": [
+    {
+      "sCode": 1471,
+      "sName": "首利"
+    },
+    {
+      "sCode": 2059,
+      "sName": "川湖"
+    },
+    {
+      "sCode": 2332,
+      "sName": "友訊"
+    },
+    {
+      "sCode": 2345,
+      "sName": "智邦"
+    },
+    {
+      "sCode": 2485,
+      "sName": "兆赫"
+    },
+    {
+      "sCode": 3027,
+      "sName": "盛達"
+    },
+    {
+      "sCode": 3047,
+      "sName": "訊舟"
+    },
+    {
+      "sCode": 3312,
+      "sName": "弘憶股"
+    },
+    {
+      "sCode": 3380,
+      "sName": "明泰"
+    },
+    {
+      "sCode": 3558,
+      "sName": "神準"
+    },
+    {
+      "sCode": 3564,
+      "sName": "其陽"
+    },
+    {
+      "sCode": 3664,
+      "sName": "安瑞KY"
+    },
+    {
+      "sCode": 3704,
+      "sName": "合勤控"
+    },
+    {
+      "sCode": 3710,
+      "sName": "連展投控"
+    },
+    {
+      "sCode": 4905,
+      "sName": "台聯電"
+    },
+    {
+      "sCode": 4906,
+      "sName": "正文"
+    },
+    {
+      "sCode": 5388,
+      "sName": "中磊"
+    },
+    {
+      "sCode": 6142,
+      "sName": "友勁"
+    },
+    {
+      "sCode": 6152,
+      "sName": "百一"
+    },
+    {
+      "sCode": 6216,
+      "sName": "居易"
+    },
+    {
+      "sCode": 6218,
+      "sName": "豪勉"
+    },
+    {
+      "sCode": 6263,
+      "sName": "普萊德"
+    },
+    {
+      "sCode": 6470,
+      "sName": "宇智"
+    },
+    {
+      "sCode": 8034,
+      "sName": "榮群"
+    },
+    {
+      "sCode": 8059,
+      "sName": "凱碩"
+    }
+  ],
+  "影像感測元件": [
+    {
+      "sCode": 3227,
+      "sName": "原相"
+    },
+    {
+      "sCode": 3530,
+      "sName": "晶相光"
+    },
+    {
+      "sCode": 4974,
+      "sName": "亞泰"
+    },
+    {
+      "sCode": 8249,
+      "sName": "菱光"
+    }
+  ],
+  "車用電子": [
+    {
+      "sCode": 1533,
+      "sName": "車王電"
+    },
+    {
+      "sCode": 2413,
+      "sName": "環科"
+    },
+    {
+      "sCode": 2497,
+      "sName": "怡利電"
+    },
+    {
+      "sCode": 3310,
+      "sName": "佳穎"
+    },
+    {
+      "sCode": 3552,
+      "sName": "同致"
+    },
+    {
+      "sCode": 4554,
+      "sName": "橙的"
+    },
+    {
+      "sCode": 4931,
+      "sName": "新盛力"
+    },
+    {
+      "sCode": 5309,
+      "sName": "系統電"
+    }
+  ],
+  "MLCC": [
+    {
+      "sCode": 2327,
+      "sName": "國巨"
+    },
+    {
+      "sCode": 2492,
+      "sName": "華新科"
+    },
+    {
+      "sCode": 3026,
+      "sName": "禾伸堂"
+    },
+    {
+      "sCode": 3152,
+      "sName": "璟德"
+    },
+    {
+      "sCode": 4760,
+      "sName": "勤凱"
+    },
+    {
+      "sCode": 6173,
+      "sName": "信昌電"
+    },
+    {
+      "sCode": 8043,
+      "sName": "蜜望實"
+    }
+  ],
+  "半導體設備": [
+    {
+      "sCode": 1595,
+      "sName": "川寶"
+    },
+    {
+      "sCode": 2360,
+      "sName": "致茂"
+    },
+    {
+      "sCode": 2404,
+      "sName": "漢唐"
+    },
+    {
+      "sCode": 3030,
+      "sName": "德律"
+    },
+    {
+      "sCode": 3055,
+      "sName": "蔚華科"
+    },
+    {
+      "sCode": 3131,
+      "sName": "弘塑"
+    },
+    {
+      "sCode": 3219,
+      "sName": "倚強科"
+    },
+    {
+      "sCode": 3402,
+      "sName": "漢科"
+    },
+    {
+      "sCode": 3413,
+      "sName": "京鼎"
+    },
+    {
+      "sCode": 3551,
+      "sName": "世禾"
+    },
+    {
+      "sCode": 3581,
+      "sName": "博磊"
+    },
+    {
+      "sCode": 3583,
+      "sName": "辛耘"
+    },
+    {
+      "sCode": 3680,
+      "sName": "家登"
+    },
+    {
+      "sCode": 5434,
+      "sName": "崇越"
+    },
+    {
+      "sCode": 6166,
+      "sName": "凌華"
+    },
+    {
+      "sCode": 6187,
+      "sName": "萬潤"
+    },
+    {
+      "sCode": 6196,
+      "sName": "帆宣"
+    },
+    {
+      "sCode": 6208,
+      "sName": "日揚"
+    },
+    {
+      "sCode": 6234,
+      "sName": "高僑"
+    },
+    {
+      "sCode": 6532,
+      "sName": "瑞耘"
+    },
+    {
+      "sCode": 6613,
+      "sName": "朋億"
+    },
+    {
+      "sCode": 6640,
+      "sName": "均華"
+    },
+    {
+      "sCode": 6667,
+      "sName": "信紘科"
+    },
+    {
+      "sCode": 6788,
+      "sName": "華景電"
+    },
+    {
+      "sCode": 8027,
+      "sName": "鈦昇"
+    }
+  ],
+  "電源供應器": [
+    {
+      "sCode": 2301,
+      "sName": "光寶科"
+    },
+    {
+      "sCode": 2308,
+      "sName": "台達電"
+    },
+    {
+      "sCode": 2420,
+      "sName": "新巨"
+    },
+    {
+      "sCode": 2431,
+      "sName": "聯昌"
+    },
+    {
+      "sCode": 2457,
+      "sName": "飛宏"
+    },
+    {
+      "sCode": 3015,
+      "sName": "全漢"
+    },
+    {
+      "sCode": 3058,
+      "sName": "立德"
+    },
+    {
+      "sCode": 3078,
+      "sName": "僑威"
+    },
+    {
+      "sCode": 3296,
+      "sName": "勝德"
+    },
+    {
+      "sCode": 3308,
+      "sName": "聯德"
+    },
+    {
+      "sCode": 3332,
+      "sName": "幸康"
+    },
+    {
+      "sCode": 3465,
+      "sName": "進泰電子"
+    },
+    {
+      "sCode": 3540,
+      "sName": "曜越"
+    },
+    {
+      "sCode": 3617,
+      "sName": "碩天"
+    },
+    {
+      "sCode": 6109,
+      "sName": "亞元"
+    },
+    {
+      "sCode": 6203,
+      "sName": "海韻電"
+    },
+    {
+      "sCode": 6276,
+      "sName": "安鈦克"
+    },
+    {
+      "sCode": 6282,
+      "sName": "康舒"
+    },
+    {
+      "sCode": 6412,
+      "sName": "群電"
+    },
+    {
+      "sCode": 8093,
+      "sName": "保銳"
+    },
+    {
+      "sCode": 8109,
+      "sName": "博大"
+    }
+  ],
+  "驅動IC": [
+    {
+      "sCode": 3034,
+      "sName": "聯詠"
+    },
+    {
+      "sCode": 3141,
+      "sName": "晶宏"
+    },
+    {
+      "sCode": 3527,
+      "sName": "聚積"
+    },
+    {
+      "sCode": 3545,
+      "sName": "敦泰"
+    },
+    {
+      "sCode": 4945,
+      "sName": "陞達科技"
+    },
+    {
+      "sCode": 4961,
+      "sName": "天鈺"
+    },
+    {
+      "sCode": 8016,
+      "sName": "矽創"
+    }
+  ],
+  "電信數據服務": [
+    {
+      "sCode": 2412,
+      "sName": "中華電"
+    },
+    {
+      "sCode": 3045,
+      "sName": "台灣大"
+    },
+    {
+      "sCode": 3682,
+      "sName": "亞太電"
+    },
+    {
+      "sCode": 4904,
+      "sName": "遠傳"
+    },
+    {
+      "sCode": 6561,
+      "sName": "是方"
+    }
+  ],
+  "石英元件": [
+    {
+      "sCode": 2484,
+      "sName": "希華"
+    },
+    {
+      "sCode": 3042,
+      "sName": "晶技"
+    },
+    {
+      "sCode": 3221,
+      "sName": "台嘉碩"
+    },
+    {
+      "sCode": 6174,
+      "sName": "安碁"
+    },
+    {
+      "sCode": 8182,
+      "sName": "加高"
+    },
+    {
+      "sCode": 8289,
+      "sName": "泰藝"
+    }
+  ],
+  "晶圓": [
+    {
+      "sCode": "",
+      "sName": ""
+    }
+  ],
+  "非鐵金屬": [
+    {
+      "sCode": 1584,
+      "sName": "精剛"
+    },
+    {
+      "sCode": 1785,
+      "sName": "光洋科"
+    },
+    {
+      "sCode": 2009,
+      "sName": "第一銅"
+    },
+    {
+      "sCode": 2358,
+      "sName": "廷鑫"
+    },
+    {
+      "sCode": 3162,
+      "sName": "精確"
+    },
+    {
+      "sCode": 3305,
+      "sName": "昇貿"
+    },
+    {
+      "sCode": 3631,
+      "sName": "晟楠"
+    },
+    {
+      "sCode": 8358,
+      "sName": "金居"
+    },
+    {
+      "sCode": 8390,
+      "sName": "金益鼎"
+    },
+    {
+      "sCode": 9905,
+      "sName": "大華"
+    },
+    {
+      "sCode": 9927,
+      "sName": "泰銘"
+    },
+    {
+      "sCode": 9955,
+      "sName": "佳龍"
+    }
+  ],
+  "無線通訊設備": [
+    {
+      "sCode": 2314,
+      "sName": "台揚"
+    },
+    {
+      "sCode": 2321,
+      "sName": "東訊"
+    },
+    {
+      "sCode": 2424,
+      "sName": "隴華"
+    },
+    {
+      "sCode": 2444,
+      "sName": "兆勁"
+    },
+    {
+      "sCode": 3062,
+      "sName": "建漢"
+    },
+    {
+      "sCode": 3138,
+      "sName": "耀登"
+    },
+    {
+      "sCode": 3306,
+      "sName": "鼎天"
+    },
+    {
+      "sCode": 3419,
+      "sName": "譁裕"
+    },
+    {
+      "sCode": 3491,
+      "sName": "昇達科"
+    },
+    {
+      "sCode": 3499,
+      "sName": "環天科"
+    },
+    {
+      "sCode": 3596,
+      "sName": "智易"
+    },
+    {
+      "sCode": 3632,
+      "sName": "研勤"
+    },
+    {
+      "sCode": 3684,
+      "sName": "榮昌"
+    },
+    {
+      "sCode": 3694,
+      "sName": "海華"
+    },
+    {
+      "sCode": 5284,
+      "sName": "JPP_KY"
+    },
+    {
+      "sCode": 5348,
+      "sName": "系通"
+    },
+    {
+      "sCode": 5353,
+      "sName": "台林"
+    },
+    {
+      "sCode": 6172,
+      "sName": "互億"
+    },
+    {
+      "sCode": 6197,
+      "sName": "佳必琪"
+    },
+    {
+      "sCode": 6241,
+      "sName": "易通展"
+    },
+    {
+      "sCode": 6285,
+      "sName": "啟碁"
+    },
+    {
+      "sCode": 6416,
+      "sName": "瑞祺電通"
+    },
+    {
+      "sCode": 6417,
+      "sName": "韋僑"
+    },
+    {
+      "sCode": 6465,
+      "sName": "威潤"
+    },
+    {
+      "sCode": 6514,
+      "sName": "芮特_KY"
+    },
+    {
+      "sCode": 6674,
+      "sName": "鋐寶科技"
+    },
+    {
+      "sCode": 8101,
+      "sName": "華冠"
+    },
+    {
+      "sCode": 8176,
+      "sName": "智捷"
+    },
+    {
+      "sCode": 912000,
+      "sName": "晨訊科_DR"
+    }
+  ],
+  "電池": [
+    {
+      "sCode": 1537,
+      "sName": "廣隆"
+    },
+    {
+      "sCode": 3211,
+      "sName": "順達"
+    },
+    {
+      "sCode": 3323,
+      "sName": "加百裕"
+    },
+    {
+      "sCode": 4721,
+      "sName": "美琪碼"
+    },
+    {
+      "sCode": 4739,
+      "sName": "康普"
+    },
+    {
+      "sCode": 5227,
+      "sName": "立凱_KY"
+    },
+    {
+      "sCode": 6121,
+      "sName": "新普"
+    },
+    {
+      "sCode": 6441,
+      "sName": "廣錠"
+    },
+    {
+      "sCode": 6509,
+      "sName": "聚和"
+    },
+    {
+      "sCode": 6558,
+      "sName": "興能高"
+    },
+    {
+      "sCode": 6781,
+      "sName": "AES_KY"
+    },
+    {
+      "sCode": 8038,
+      "sName": "長園科"
+    },
+    {
+      "sCode": 8171,
+      "sName": "天宇"
+    }
+  ],
+  "感測IC": [
+    {
+      "sCode": 2426,
+      "sName": "鼎元"
+    },
+    {
+      "sCode": 6271,
+      "sName": "同欣電"
+    },
+    {
+      "sCode": 6462,
+      "sName": "神盾"
+    },
+    {
+      "sCode": 6732,
+      "sName": "昇佳電子"
+    }
+  ],
+  "鋼鐵加工": [
+    {
+      "sCode": 2002,
+      "sName": "中鋼"
+    },
+    {
+      "sCode": 2007,
+      "sName": "燁興"
+    },
+    {
+      "sCode": 2010,
+      "sName": "春源"
+    },
+    {
+      "sCode": 2014,
+      "sName": "中鴻"
+    },
+    {
+      "sCode": 2017,
+      "sName": "官田鋼"
+    },
+    {
+      "sCode": 2022,
+      "sName": "聚亨"
+    },
+    {
+      "sCode": 2023,
+      "sName": "燁煇"
+    },
+    {
+      "sCode": 2024,
+      "sName": "志聯"
+    },
+    {
+      "sCode": 2029,
+      "sName": "盛餘"
+    },
+    {
+      "sCode": 2031,
+      "sName": "新光鋼"
+    },
+    {
+      "sCode": 2064,
+      "sName": "晉椿"
+    },
+    {
+      "sCode": 5009,
+      "sName": "榮剛"
+    },
+    {
+      "sCode": 8930,
+      "sName": "青鋼"
+    }
+  ],
+  "製藥": [
+    {
+      "sCode": 1701,
+      "sName": "中化"
+    },
+    {
+      "sCode": 1720,
+      "sName": "生達"
+    },
+    {
+      "sCode": 1734,
+      "sName": "杏輝"
+    },
+    {
+      "sCode": 1752,
+      "sName": "南光"
+    },
+    {
+      "sCode": 1760,
+      "sName": "寶齡富錦"
+    },
+    {
+      "sCode": 1762,
+      "sName": "中化生"
+    },
+    {
+      "sCode": 1777,
+      "sName": "生泰"
+    },
+    {
+      "sCode": 1783,
+      "sName": "和康生"
+    },
+    {
+      "sCode": 1789,
+      "sName": "神隆"
+    },
+    {
+      "sCode": 1795,
+      "sName": "美時"
+    },
+    {
+      "sCode": 1799,
+      "sName": "易威"
+    },
+    {
+      "sCode": 3176,
+      "sName": "基亞"
+    },
+    {
+      "sCode": 3705,
+      "sName": "永信"
+    },
+    {
+      "sCode": 4102,
+      "sName": "永日"
+    },
+    {
+      "sCode": 4105,
+      "sName": "東洋"
+    },
+    {
+      "sCode": 4108,
+      "sName": "懷特"
+    },
+    {
+      "sCode": 4114,
+      "sName": "健喬"
+    },
+    {
+      "sCode": 4119,
+      "sName": "旭富"
+    },
+    {
+      "sCode": 4123,
+      "sName": "晟德"
+    },
+    {
+      "sCode": 4130,
+      "sName": "健亞"
+    },
+    {
+      "sCode": 4147,
+      "sName": "中裕"
+    },
+    {
+      "sCode": 4157,
+      "sName": "太景_KY"
+    },
+    {
+      "sCode": 4162,
+      "sName": "智擎"
+    },
+    {
+      "sCode": 4167,
+      "sName": "松瑞藥"
+    },
+    {
+      "sCode": 4168,
+      "sName": "醣聯"
+    },
+    {
+      "sCode": 4174,
+      "sName": "浩鼎"
+    },
+    {
+      "sCode": 4192,
+      "sName": "杏國"
+    },
+    {
+      "sCode": 4726,
+      "sName": "永昕"
+    },
+    {
+      "sCode": 4743,
+      "sName": "合一"
+    },
+    {
+      "sCode": 4747,
+      "sName": "強生"
+    },
+    {
+      "sCode": 4911,
+      "sName": "德英"
+    },
+    {
+      "sCode": 5398,
+      "sName": "慕康生醫"
+    },
+    {
+      "sCode": 6130,
+      "sName": "星寶國際"
+    },
+    {
+      "sCode": 6446,
+      "sName": "藥華藥"
+    },
+    {
+      "sCode": 6461,
+      "sName": "益得"
+    },
+    {
+      "sCode": 6472,
+      "sName": "保瑞"
+    },
+    {
+      "sCode": 6492,
+      "sName": "生華科"
+    },
+    {
+      "sCode": 6496,
+      "sName": "科懋"
+    },
+    {
+      "sCode": 6535,
+      "sName": "順藥"
+    },
+    {
+      "sCode": 6541,
+      "sName": "泰福_KY"
+    },
+    {
+      "sCode": 6547,
+      "sName": "高端疫苗"
+    },
+    {
+      "sCode": 6576,
+      "sName": "逸達"
+    },
+    {
+      "sCode": 6589,
+      "sName": "台康生技"
+    },
+    {
+      "sCode": 6712,
+      "sName": "長聖"
+    },
+    {
+      "sCode": 8432,
+      "sName": "東生華"
+    }
+  ],
+  "汽機車": [
+    {
+      "sCode": 1599,
+      "sName": "宏佳騰"
+    },
+    {
+      "sCode": 2201,
+      "sName": "裕隆"
+    },
+    {
+      "sCode": 2204,
+      "sName": "中華"
+    },
+    {
+      "sCode": 2207,
+      "sName": "和泰車"
+    },
+    {
+      "sCode": 2227,
+      "sName": "裕日車"
+    },
+    {
+      "sCode": 2247,
+      "sName": "汎德永業"
+    },
+    {
+      "sCode": 2442,
+      "sName": "新美齊"
+    },
+    {
+      "sCode": 4529,
+      "sName": "淳紳"
+    },
+    {
+      "sCode": 4702,
+      "sName": "中美實"
+    },
+    {
+      "sCode": 8937,
+      "sName": "合騏"
+    }
+  ],
+  "砷化鎵代工": [
+    {
+      "sCode": 2455,
+      "sName": "全新"
+    },
+    {
+      "sCode": 3105,
+      "sName": "穩懋"
+    },
+    {
+      "sCode": 4971,
+      "sName": "IET_KY"
+    },
+    {
+      "sCode": 5222,
+      "sName": "全訊"
+    },
+    {
+      "sCode": 8086,
+      "sName": "宏捷科"
+    }
+  ],
+  "連接線材": [
+    {
+      "sCode": 2328,
+      "sName": "廣宇"
+    },
+    {
+      "sCode": 2462,
+      "sName": "良得電"
+    },
+    {
+      "sCode": 3011,
+      "sName": "今晧"
+    },
+    {
+      "sCode": 3021,
+      "sName": "鴻名"
+    },
+    {
+      "sCode": 3023,
+      "sName": "信邦"
+    },
+    {
+      "sCode": 3092,
+      "sName": "鴻碩"
+    },
+    {
+      "sCode": 3114,
+      "sName": "好德"
+    },
+    {
+      "sCode": 3322,
+      "sName": "建舜電"
+    },
+    {
+      "sCode": 3501,
+      "sName": "維熹"
+    },
+    {
+      "sCode": 3550,
+      "sName": "聯穎"
+    },
+    {
+      "sCode": 3597,
+      "sName": "映興"
+    },
+    {
+      "sCode": 3665,
+      "sName": "貿聯_KY"
+    },
+    {
+      "sCode": 5488,
+      "sName": "松普"
+    },
+    {
+      "sCode": 6115,
+      "sName": "鎰勝"
+    },
+    {
+      "sCode": 6126,
+      "sName": "信音"
+    },
+    {
+      "sCode": 6133,
+      "sName": "金橋"
+    },
+    {
+      "sCode": 6134,
+      "sName": "萬旭"
+    },
+    {
+      "sCode": 6165,
+      "sName": "浪凡"
+    },
+    {
+      "sCode": 6190,
+      "sName": "萬泰科"
+    },
+    {
+      "sCode": 6205,
+      "sName": "詮欣"
+    },
+    {
+      "sCode": 6220,
+      "sName": "岳豐"
+    },
+    {
+      "sCode": 6290,
+      "sName": "良維"
+    },
+    {
+      "sCode": 6715,
+      "sName": "嘉基"
+    }
+  ],
+  "矽智財": [
+    {
+      "sCode": 3529,
+      "sName": "力旺"
+    },
+    {
+      "sCode": 6243,
+      "sName": "迅杰"
+    },
+    {
+      "sCode": 6533,
+      "sName": "晶心科"
+    }
+  ],
+  "自行車": [
+    {
+      "sCode": 1517,
+      "sName": "利奇"
+    },
+    {
+      "sCode": 1526,
+      "sName": "日馳"
+    },
+    {
+      "sCode": 5306,
+      "sName": "桂盟"
+    },
+    {
+      "sCode": 8481,
+      "sName": "政伸"
+    },
+    {
+      "sCode": 8933,
+      "sName": "愛地雅"
+    },
+    {
+      "sCode": 9914,
+      "sName": "美利達"
+    },
+    {
+      "sCode": 9921,
+      "sName": "巨大"
+    }
+  ],
+  "光通訊設備": [
+    {
+      "sCode": 2419,
+      "sName": "仲琦"
+    },
+    {
+      "sCode": 3025,
+      "sName": "星通"
+    },
+    {
+      "sCode": 3081,
+      "sName": "聯亞"
+    },
+    {
+      "sCode": 3163,
+      "sName": "波若威"
+    },
+    {
+      "sCode": 3234,
+      "sName": "光環"
+    },
+    {
+      "sCode": 3363,
+      "sName": "上詮"
+    },
+    {
+      "sCode": 3450,
+      "sName": "聯鈞"
+    },
+    {
+      "sCode": 3672,
+      "sName": "康聯訊"
+    },
+    {
+      "sCode": 4903,
+      "sName": "聯光通"
+    },
+    {
+      "sCode": 4908,
+      "sName": "前鼎"
+    },
+    {
+      "sCode": 4977,
+      "sName": "眾達_KY"
+    },
+    {
+      "sCode": 4979,
+      "sName": "華星光"
+    },
+    {
+      "sCode": 6426,
+      "sName": "統新"
+    },
+    {
+      "sCode": 6442,
+      "sName": "光聖"
+    },
+    {
+      "sCode": 6530,
+      "sName": "創威"
+    },
+    {
+      "sCode": 6588,
+      "sName": "東典光電"
+    },
+    {
+      "sCode": 8011,
+      "sName": "台通"
+    },
+    {
+      "sCode": 8048,
+      "sName": "德勝"
+    },
+    {
+      "sCode": 8089,
+      "sName": "康全電訊"
+    },
+    {
+      "sCode": 8097,
+      "sName": "常珵"
+    }
+  ],
+  "旅游": [
+    {
+      "sCode": 2719,
+      "sName": "燦星旅"
+    },
+    {
+      "sCode": 2731,
+      "sName": "雄獅"
+    },
+    {
+      "sCode": 2734,
+      "sName": "易飛網"
+    },
+    {
+      "sCode": 2743,
+      "sName": "山富"
+    },
+    {
+      "sCode": 2745,
+      "sName": "五福"
+    },
+    {
+      "sCode": 5706,
+      "sName": "鳯凰"
+    }
+  ],
+  "生技其他": [
+    {
+      "sCode": 4131,
+      "sName": "晶宇"
+    },
+    {
+      "sCode": 4133,
+      "sName": "亞諾法"
+    },
+    {
+      "sCode": 4139,
+      "sName": "馬光"
+    },
+    {
+      "sCode": 4142,
+      "sName": "國光生"
+    },
+    {
+      "sCode": 4160,
+      "sName": "創源"
+    },
+    {
+      "sCode": 4171,
+      "sName": "瑞基"
+    },
+    {
+      "sCode": 4173,
+      "sName": "久裕"
+    },
+    {
+      "sCode": 4183,
+      "sName": "福永生技"
+    },
+    {
+      "sCode": 6615,
+      "sName": "慧智"
+    },
+    {
+      "sCode": 6662,
+      "sName": "樂斯科"
+    }
+  ],
+  "醫療器材": [
+    {
+      "sCode": 1733,
+      "sName": "五鼎"
+    },
+    {
+      "sCode": 1781,
+      "sName": "合世"
+    },
+    {
+      "sCode": 1786,
+      "sName": "科妍"
+    },
+    {
+      "sCode": 1788,
+      "sName": "杏昌"
+    },
+    {
+      "sCode": 3118,
+      "sName": "進階"
+    },
+    {
+      "sCode": 3373,
+      "sName": "熱映"
+    },
+    {
+      "sCode": 4104,
+      "sName": "佳醫"
+    },
+    {
+      "sCode": 4106,
+      "sName": "雃博"
+    },
+    {
+      "sCode": 4107,
+      "sName": "邦特"
+    },
+    {
+      "sCode": 4116,
+      "sName": "明基醫"
+    },
+    {
+      "sCode": 4121,
+      "sName": "優盛"
+    },
+    {
+      "sCode": 4126,
+      "sName": "太醫"
+    },
+    {
+      "sCode": 4129,
+      "sName": "聯合"
+    },
+    {
+      "sCode": 4138,
+      "sName": "曜亞"
+    },
+    {
+      "sCode": 4161,
+      "sName": "聿新科"
+    },
+    {
+      "sCode": 4163,
+      "sName": "鐿鈦"
+    },
+    {
+      "sCode": 4161,
+      "sName": "承業醫"
+    },
+    {
+      "sCode": 4175,
+      "sName": "杏一"
+    },
+    {
+      "sCode": 4188,
+      "sName": "安克"
+    },
+    {
+      "sCode": 4198,
+      "sName": "欣大健康"
+    },
+    {
+      "sCode": 4735,
+      "sName": "豪展"
+    },
+    {
+      "sCode": 4744,
+      "sName": "皇將"
+    },
+    {
+      "sCode": 6499,
+      "sName": "益安"
+    },
+    {
+      "sCode": 6527,
+      "sName": "明達醫"
+    },
+    {
+      "sCode": 6612,
+      "sName": "奈米醫材"
+    },
+    {
+      "sCode": 6649,
+      "sName": "台生材"
+    },
+    {
+      "sCode": 6733,
+      "sName": "博晟生醫"
+    },
+    {
+      "sCode": 6762,
+      "sName": "達亞"
+    },
+    {
+      "sCode": 6767,
+      "sName": "台微醫"
+    },
+    {
+      "sCode": 8403,
+      "sName": "盛弘"
+    },
+    {
+      "sCode": 8409,
+      "sName": "商之器"
+    },
+    {
+      "sCode": 9103,
+      "sName": "美德醫療_DR"
+    }
+  ],
+  "石化": [
+    {
+      "sCode": 1310,
+      "sName": "台苯"
+    },
+    {
+      "sCode": 1314,
+      "sName": "中石化"
+    },
+    {
+      "sCode": 1326,
+      "sName": "台化"
+    },
+    {
+      "sCode": 1723,
+      "sName": "中碳"
+    }
+  ],
+  "不鏽鋼產品": [
+    {
+      "sCode": 2027,
+      "sName": "大成鋼"
+    },
+    {
+      "sCode": 2221,
+      "sName": "大甲"
+    },
+    {
+      "sCode": 4950,
+      "sName": "牧東"
+    },
+    {
+      "sCode": 5013,
+      "sName": "強新"
+    },
+    {
+      "sCode": 5014,
+      "sName": "建錩"
+    },
+    {
+      "sCode": 5015,
+      "sName": "華祺"
+    },
+    {
+      "sCode": 5016,
+      "sName": "松和"
+    },
+    {
+      "sCode": 5538,
+      "sName": "東明_KY"
+    }
+  ],
+  "銀行": [
+    {
+      "sCode": 2801,
+      "sName": "彰銀"
+    },
+    {
+      "sCode": 2809,
+      "sName": "京城銀"
+    },
+    {
+      "sCode": 2812,
+      "sName": "台中銀"
+    },
+    {
+      "sCode": 2834,
+      "sName": "臺企銀"
+    },
+    {
+      "sCode": 2836,
+      "sName": "高雄銀"
+    },
+    {
+      "sCode": 2838,
+      "sName": "聯邦銀"
+    },
+    {
+      "sCode": 2845,
+      "sName": "遠東銀"
+    },
+    {
+      "sCode": 2849,
+      "sName": "安泰銀"
+    },
+    {
+      "sCode": 2897,
+      "sName": "王道銀行"
+    },
+    {
+      "sCode": 5876,
+      "sName": "上海商銀"
+    }
+  ],
+  "散熱模組": [
+    {
+      "sCode": 2241,
+      "sName": "艾姆勒"
+    },
+    {
+      "sCode": 2421,
+      "sName": "建準"
+    },
+    {
+      "sCode": 3017,
+      "sName": "奇鋐"
+    },
+    {
+      "sCode": 3324,
+      "sName": "雙鴻"
+    },
+    {
+      "sCode": 3338,
+      "sName": "泰碩"
+    },
+    {
+      "sCode": 3483,
+      "sName": "力致"
+    },
+    {
+      "sCode": 3653,
+      "sName": "健策"
+    },
+    {
+      "sCode": 6124,
+      "sName": "業強"
+    },
+    {
+      "sCode": 6230,
+      "sName": "尼得科超眾"
+    }
+  ],
+  "應用生技": [
+    {
+      "sCode": 1565,
+      "sName": "精華"
+    },
+    {
+      "sCode": 1707,
+      "sName": "葡萄王"
+    },
+    {
+      "sCode": 1784,
+      "sName": "訊聯"
+    },
+    {
+      "sCode": 1796,
+      "sName": "金穎生技"
+    },
+    {
+      "sCode": 1813,
+      "sName": "寶利徠"
+    },
+    {
+      "sCode": 3164,
+      "sName": "景岳"
+    },
+    {
+      "sCode": 3205,
+      "sName": "佰研"
+    },
+    {
+      "sCode": 3218,
+      "sName": "大學光"
+    },
+    {
+      "sCode": 4109,
+      "sName": "加捷生醫"
+    },
+    {
+      "sCode": 4111,
+      "sName": "濟生"
+    },
+    {
+      "sCode": 4120,
+      "sName": "友華"
+    },
+    {
+      "sCode": 4127,
+      "sName": "天良"
+    },
+    {
+      "sCode": 4128,
+      "sName": "中天"
+    },
+    {
+      "sCode": 4137,
+      "sName": "麗豐_KY"
+    },
+    {
+      "sCode": 4148,
+      "sName": "全宇生技_KY"
+    },
+    {
+      "sCode": 4154,
+      "sName": "樂威科_KY"
+    },
+    {
+      "sCode": 4155,
+      "sName": "訊映"
+    },
+    {
+      "sCode": 4190,
+      "sName": "佐登_KY"
+    },
+    {
+      "sCode": 4728,
+      "sName": "雙美"
+    },
+    {
+      "sCode": 4736,
+      "sName": "泰博"
+    },
+    {
+      "sCode": 4737,
+      "sName": "華廣"
+    },
+    {
+      "sCode": 4745,
+      "sName": "合富_KY"
+    },
+    {
+      "sCode": 4746,
+      "sName": "台耀"
+    },
+    {
+      "sCode": 6236,
+      "sName": "康呈"
+    },
+    {
+      "sCode": 6242,
+      "sName": "立康"
+    },
+    {
+      "sCode": 6469,
+      "sName": "大樹"
+    },
+    {
+      "sCode": 6491,
+      "sName": "晶碩"
+    },
+    {
+      "sCode": 6523,
+      "sName": "達爾膚"
+    },
+    {
+      "sCode": 6574,
+      "sName": "霈方"
+    },
+    {
+      "sCode": 6598,
+      "sName": "ABC_KY"
+    },
+    {
+      "sCode": 6661,
+      "sName": "威健生技"
+    },
+    {
+      "sCode": 6666,
+      "sName": "羅麗芬_KY"
+    },
+    {
+      "sCode": 6703,
+      "sName": "軒郁"
+    },
+    {
+      "sCode": 6747,
+      "sName": "享泰光"
+    },
+    {
+      "sCode": 8279,
+      "sName": "生展"
+    },
+    {
+      "sCode": 8406,
+      "sName": "金可_KY"
+    },
+    {
+      "sCode": 8436,
+      "sName": "大江"
+    }
+  ],
+  "高爾夫球": [
+    {
+      "sCode": 6670,
+      "sName": "復盛應用"
+    },
+    {
+      "sCode": 8420,
+      "sName": "明揚"
+    },
+    {
+      "sCode": 8924,
+      "sName": "大田"
+    },
+    {
+      "sCode": 8928,
+      "sName": "鉅明"
+    },
+    {
+      "sCode": 8938,
+      "sName": "明安"
+    },
+    {
+      "sCode": 9960,
+      "sName": "邁達康"
+    }
+  ],
+  "證券": [
+    {
+      "sCode": 2855,
+      "sName": "統一證"
+    },
+    {
+      "sCode": 5820,
+      "sName": "日盛金"
+    },
+    {
+      "sCode": 5864,
+      "sName": "致和證"
+    },
+    {
+      "sCode": 6005,
+      "sName": "群益證"
+    },
+    {
+      "sCode": 6015,
+      "sName": "宏遠證"
+    },
+    {
+      "sCode": 6016,
+      "sName": "康和證"
+    },
+    {
+      "sCode": 6020,
+      "sName": "大展證"
+    },
+    {
+      "sCode": 6021,
+      "sName": "美好證"
+    },
+    {
+      "sCode": 6023,
+      "sName": "元大期"
+    },
+    {
+      "sCode": 6024,
+      "sName": "群益期"
+    },
+    {
+      "sCode": 6026,
+      "sName": "福邦證"
+    }
+  ],
+  "保險": [
+    {
+      "sCode": 2816,
+      "sName": "旺旺保"
+    },
+    {
+      "sCode": 2820,
+      "sName": "華票"
+    },
+    {
+      "sCode": 2823,
+      "sName": "中壽"
+    },
+    {
+      "sCode": 2832,
+      "sName": "台產"
+    },
+    {
+      "sCode": 2850,
+      "sName": "新產"
+    },
+    {
+      "sCode": 2851,
+      "sName": "中再保"
+    },
+    {
+      "sCode": 2852,
+      "sName": "第一保"
+    },
+    {
+      "sCode": 2867,
+      "sName": "三商壽"
+    },
+    {
+      "sCode": 2905,
+      "sName": "三商"
+    },
+    {
+      "sCode": 5878,
+      "sName": "台名"
+    }
+  ],
+  "成衣": [
+    {
+      "sCode": 1417,
+      "sName": "嘉裕"
+    },
+    {
+      "sCode": 1419,
+      "sName": "新紡"
+    },
+    {
+      "sCode": 1451,
+      "sName": "年興"
+    },
+    {
+      "sCode": 1467,
+      "sName": "南緯"
+    },
+    {
+      "sCode": 1473,
+      "sName": "台南"
+    },
+    {
+      "sCode": 1476,
+      "sName": "儒鴻"
+    },
+    {
+      "sCode": 1477,
+      "sName": "聚陽"
+    },
+    {
+      "sCode": 2929,
+      "sName": "淘帝_KY"
+    },
+    {
+      "sCode": 4413,
+      "sName": "飛寶企業"
+    },
+    {
+      "sCode": 4414,
+      "sName": "如興"
+    },
+    {
+      "sCode": 4432,
+      "sName": "銘旺實"
+    },
+    {
+      "sCode": 4438,
+      "sName": "廣越"
+    },
+    {
+      "sCode": 5906,
+      "sName": "台南_KY"
+    },
+    {
+      "sCode": 8916,
+      "sName": "光隆"
+    }
+  ],
+  "家居用品": [
+    {
+      "sCode": 1472,
+      "sName": "三洋實業"
+    },
+    {
+      "sCode": 1611,
+      "sName": "中電"
+    },
+    {
+      "sCode": 1810,
+      "sName": "和成"
+    },
+    {
+      "sCode": 1817,
+      "sName": "凱撒衛"
+    },
+    {
+      "sCode": 2062,
+      "sName": "橋椿"
+    },
+    {
+      "sCode": 2936,
+      "sName": "客思達_KY"
+    },
+    {
+      "sCode": 2947,
+      "sName": "振宇五金"
+    },
+    {
+      "sCode": 3516,
+      "sName": "亞帝歐"
+    },
+    {
+      "sCode": 3557,
+      "sName": "嘉威"
+    },
+    {
+      "sCode": 4972,
+      "sName": "湯石照明"
+    },
+    {
+      "sCode": 6222,
+      "sName": "上揚"
+    },
+    {
+      "sCode": 6616,
+      "sName": "特昇_KY"
+    },
+    {
+      "sCode": 6629,
+      "sName": "泰金_KY"
+    },
+    {
+      "sCode": 6655,
+      "sName": "科定"
+    },
+    {
+      "sCode": 8066,
+      "sName": "來思達"
+    },
+    {
+      "sCode": 8342,
+      "sName": "益張"
+    },
+    {
+      "sCode": 8427,
+      "sName": "基勝_KY"
+    },
+    {
+      "sCode": 8464,
+      "sName": "億豐"
+    },
+    {
+      "sCode": 8482,
+      "sName": "商億_KY"
+    },
+    {
+      "sCode": 9911,
+      "sName": "櫻花"
+    },
+    {
+      "sCode": 9924,
+      "sName": "福興"
+    },
+    {
+      "sCode": 9934,
+      "sName": "成霖"
+    },
+    {
+      "sCode": 9935,
+      "sName": "慶豐富"
+    },
+    {
+      "sCode": 9944,
+      "sName": "新麗"
+    }
+  ],
+  "機電工程": [
+    {
+      "sCode": 1504,
+      "sName": "東元"
+    },
+    {
+      "sCode": 1513,
+      "sName": "中興電"
+    },
+    {
+      "sCode": 1514,
+      "sName": "亞力"
+    },
+    {
+      "sCode": 1516,
+      "sName": "川飛"
+    },
+    {
+      "sCode": 1519,
+      "sName": "華城"
+    },
+    {
+      "sCode": 1529,
+      "sName": "樂士"
+    },
+    {
+      "sCode": 1535,
+      "sName": "中宇"
+    },
+    {
+      "sCode": 2359,
+      "sName": "所羅門"
+    },
+    {
+      "sCode": 3018,
+      "sName": "同開"
+    },
+    {
+      "sCode": 3628,
+      "sName": "盈正"
+    },
+    {
+      "sCode": 4549,
+      "sName": "桓達"
+    },
+    {
+      "sCode": 4550,
+      "sName": "長佳"
+    },
+    {
+      "sCode": 4576,
+      "sName": "大銀微系統"
+    },
+    {
+      "sCode": 6806,
+      "sName": "森崴能源"
+    },
+    {
+      "sCode": 911608,
+      "sName": "明輝_DR"
+    }
+  ],
+  "放款": [
+    {
+      "sCode": 5871,
+      "sName": "中租_KY"
+    },
+    {
+      "sCode": 6592,
+      "sName": "和潤企業"
+    },
+    {
+      "sCode": 9941,
+      "sName": "裕融"
+    }
+  ],
+  "電子商務": [
+    {
+      "sCode": 3085,
+      "sName": "新零售"
+    },
+    {
+      "sCode": 5278,
+      "sName": "尚凡"
+    },
+    {
+      "sCode": 5321,
+      "sName": "美而快"
+    },
+    {
+      "sCode": 6486,
+      "sName": "互動"
+    },
+    {
+      "sCode": 6590,
+      "sName": "普鴻"
+    },
+    {
+      "sCode": 6741,
+      "sName": "91APP_KY"
+    },
+    {
+      "sCode": 8044,
+      "sName": "網家"
+    },
+    {
+      "sCode": 8454,
+      "sName": "富邦媒"
+    },
+    {
+      "sCode": 8472,
+      "sName": "夠麻吉"
+    },
+    {
+      "sCode": 8477,
+      "sName": "創業家"
+    }
+  ],
+  "IC零組件通路商": [
+    {
+      "sCode": 3010,
+      "sName": "華立"
+    },
+    {
+      "sCode": 3028,
+      "sName": "增你強"
+    },
+    {
+      "sCode": 3033,
+      "sName": "威健"
+    },
+    {
+      "sCode": 3036,
+      "sName": "文曄"
+    },
+    {
+      "sCode": 3048,
+      "sName": "益登"
+    },
+    {
+      "sCode": 3209,
+      "sName": "全科"
+    },
+    {
+      "sCode": 3232,
+      "sName": "昱捷"
+    },
+    {
+      "sCode": 3360,
+      "sName": "尚立"
+    },
+    {
+      "sCode": 3528,
+      "sName": "安馳"
+    },
+    {
+      "sCode": 3537,
+      "sName": "堡達"
+    },
+    {
+      "sCode": 3702,
+      "sName": "大聯大"
+    },
+    {
+      "sCode": 6113,
+      "sName": "亞矽"
+    },
+    {
+      "sCode": 6114,
+      "sName": "久威"
+    },
+    {
+      "sCode": 6189,
+      "sName": "豐藝"
+    },
+    {
+      "sCode": 6227,
+      "sName": "茂綸"
+    },
+    {
+      "sCode": 6270,
+      "sName": "倍微"
+    },
+    {
+      "sCode": 6761,
+      "sName": "穩得"
+    },
+    {
+      "sCode": 6776,
+      "sName": "展碁國際"
+    },
+    {
+      "sCode": 8032,
+      "sName": "光菱"
+    },
+    {
+      "sCode": 8067,
+      "sName": "志旭"
+    },
+    {
+      "sCode": 8068,
+      "sName": "全達"
+    },
+    {
+      "sCode": 8070,
+      "sName": "長華"
+    },
+    {
+      "sCode": 8112,
+      "sName": "至上"
+    }
+  ],
+  "發光二極體": [
+    {
+      "sCode": 2340,
+      "sName": "台亞"
+    },
+    {
+      "sCode": 2393,
+      "sName": "億光"
+    },
+    {
+      "sCode": 2429,
+      "sName": "銘旺科"
+    },
+    {
+      "sCode": 2491,
+      "sName": "吉祥全"
+    },
+    {
+      "sCode": 3031,
+      "sName": "佰鴻"
+    },
+    {
+      "sCode": 3066,
+      "sName": "李洲"
+    },
+    {
+      "sCode": 3346,
+      "sName": "麗清"
+    },
+    {
+      "sCode": 3437,
+      "sName": "榮創"
+    },
+    {
+      "sCode": 3591,
+      "sName": "艾笛森"
+    },
+    {
+      "sCode": 3714,
+      "sName": "富采"
+    },
+    {
+      "sCode": 5281,
+      "sName": "大峽谷_KY"
+    },
+    {
+      "sCode": 6164,
+      "sName": "華興"
+    },
+    {
+      "sCode": 6168,
+      "sName": "宏齊"
+    },
+    {
+      "sCode": 6226,
+      "sName": "光鼎"
+    },
+    {
+      "sCode": 6246,
+      "sName": "臺龍"
+    },
+    {
+      "sCode": 6288,
+      "sName": "聯嘉"
+    },
+    {
+      "sCode": 8104,
+      "sName": "錸寶"
+    },
+    {
+      "sCode": 8111,
+      "sName": "立碁"
+    },
+    {
+      "sCode": 911868,
+      "sName": "同方友友_DR"
+    }
+  ],
+  "偏光板": [
+    {
+      "sCode": 3051,
+      "sName": "力特"
+    },
+    {
+      "sCode": 4960,
+      "sName": "誠美材"
+    }
+  ],
+  "紡織": [
+    {
+      "sCode": 1440,
+      "sName": "南紡"
+    },
+    {
+      "sCode": 1441,
+      "sName": "大東"
+    },
+    {
+      "sCode": 1447,
+      "sName": "力鵬"
+    },
+    {
+      "sCode": 1455,
+      "sName": "集盛"
+    },
+    {
+      "sCode": 1457,
+      "sName": "宜進"
+    },
+    {
+      "sCode": 1718,
+      "sName": "中纖"
+    },
+    {
+      "sCode": 4440,
+      "sName": "宜新實業"
+    },
+    {
+      "sCode": 4763,
+      "sName": "材料_KY"
+    }
+  ],
+  "玻璃": [
+    {
+      "sCode": 1802,
+      "sName": "台玻"
+    },
+    {
+      "sCode": 1806,
+      "sName": "冠軍"
+    },
+    {
+      "sCode": 2438,
+      "sName": "翔耀"
+    },
+    {
+      "sCode": 3149,
+      "sName": "正達"
+    },
+    {
+      "sCode": 6405,
+      "sName": "悅城"
+    },
+    {
+      "sCode": 6431,
+      "sName": "光麗_KY"
+    }
+  ],
+  "塑膠原料": [
+    {
+      "sCode": 1301,
+      "sName": "台塑"
+    },
+    {
+      "sCode": 1303,
+      "sName": "南亞"
+    },
+    {
+      "sCode": 1304,
+      "sName": "台聚"
+    },
+    {
+      "sCode": 1305,
+      "sName": "華夏"
+    },
+    {
+      "sCode": 1308,
+      "sName": "亞聚"
+    },
+    {
+      "sCode": 1309,
+      "sName": "台達化"
+    },
+    {
+      "sCode": 1312,
+      "sName": "國喬"
+    },
+    {
+      "sCode": 1321,
+      "sName": "大洋"
+    },
+    {
+      "sCode": 1710,
+      "sName": "東聯"
+    },
+    {
+      "sCode": 6151,
+      "sName": "晉倫"
+    }
+  ],
+  "XX": [
+    {
+      "sCode": "",
+      "sName": ""
+    }
+  ]
+}

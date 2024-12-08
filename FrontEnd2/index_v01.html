@@ -1,0 +1,176 @@
+<!-- from example > candleStick -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Highstock Example</title>
+
+    <style type="text/css">
+      #container,
+      #container_2 {
+        height: 300px;
+        min-width: 310px;
+      }
+      #navigator-container {
+        height: 100px;
+        min-width: 310px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="./code/highstock.js"></script>
+    <script src=".code/modules/exporting.js"></script>
+    <script src=".code/modules/accessibility.js"></script>
+    <div id="navigator-container"></div>
+    <div id="container"></div>
+    <div id="container_2"></div>
+
+    <script type="text/javascript">
+      (async () => {
+        // Fetch data for the first chart
+        const data1 = await fetch(
+          "https://demo-live-data.highcharts.com/aapl-ohlc.json"
+        ).then((response) => response.json());
+
+        // Fetch data for the second chart
+        const data2 = await fetch(
+          "https://demo-live-data.highcharts.com/msft-ohlc.json"
+        ).then((response) => response.json());
+
+        // Create the navigator chart
+        Highcharts.stockChart("navigator-container", {
+          chart: {
+            height: 100,
+            marginLeft: 40,
+            marginRight: 40,
+            zoomType: "x",
+            events: {
+              load: function () {
+                const navigatorChart = this;
+
+                // Create the first chart
+                const chart1 = Highcharts.stockChart("container", {
+                  rangeSelector: {
+                    selected: 1,
+                    enabled: false, // Disable the range selector for this chart
+                  },
+                  navigator: {
+                    enabled: false, // Disable the navigator for this chart
+                  },
+                  scrollbar: {
+                    enabled: false, // Disable the scrollbar for this chart
+                  },
+                  series: [
+                    {
+                      type: "candlestick",
+                      data: data1,
+                      dataGrouping: {
+                        units: [
+                          ["week", [1]],
+                          ["month", [1, 2, 3, 4, 6]],
+                        ],
+                      },
+                    },
+                  ],
+                  xAxis: {
+                    events: {
+                      setExtremes: function (e) {
+                        if (e.trigger !== "sync") {
+                          navigatorChart.xAxis[0].setExtremes(
+                            e.min,
+                            e.max,
+                            undefined,
+                            false,
+                            { trigger: "sync" }
+                          );
+                        }
+                      },
+                    },
+                  },
+                });
+
+                // Create the second chart
+                const chart2 = Highcharts.stockChart("container_2", {
+                  rangeSelector: {
+                    selected: 1,
+                    enabled: false, // Disable the range selector for this chart
+                  },
+                  navigator: {
+                    enabled: false, // Disable the navigator for this chart
+                  },
+                  scrollbar: {
+                    enabled: false, // Disable the scrollbar for this chart
+                  },
+                  series: [
+                    {
+                      type: "candlestick",
+                      data: data2,
+                      dataGrouping: {
+                        units: [
+                          ["week", [1]],
+                          ["month", [1, 2, 3, 4, 6]],
+                        ],
+                      },
+                    },
+                  ],
+                  xAxis: {
+                    events: {
+                      setExtremes: function (e) {
+                        if (e.trigger !== "sync") {
+                          navigatorChart.xAxis[0].setExtremes(
+                            e.min,
+                            e.max,
+                            undefined,
+                            false,
+                            { trigger: "sync" }
+                          );
+                        }
+                      },
+                    },
+                  },
+                });
+
+                // Sync the navigator with the charts
+                navigatorChart.xAxis[0].update({
+                  events: {
+                    setExtremes: function (e) {
+                      if (e.trigger !== "sync") {
+                        Highcharts.charts.forEach(function (chart) {
+                          if (chart !== navigatorChart) {
+                            chart.xAxis[0].setExtremes(
+                              e.min,
+                              e.max,
+                              undefined,
+                              false,
+                              { trigger: "sync" }
+                            );
+                          }
+                        });
+                      }
+                    },
+                  },
+                });
+              },
+            },
+          },
+          series: [
+            {
+              data: data1, // Use data1 for the navigator
+              visible: true, // Ensure the data is visible
+            },
+          ],
+          navigator: {
+            enabled: true, // Enable the navigator
+          },
+          scrollbar: {
+            enabled: true, // Enable the scrollbar
+          },
+          rangeSelector: {
+            enabled: true, // Enable the range selector
+          },
+        });
+      })();
+    </script>
+  </body>
+</html>

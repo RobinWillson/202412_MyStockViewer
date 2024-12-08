@@ -1,0 +1,20 @@
+# Node.js
+node_modules/
+npm-debug.log
+
+# Visual Studio Code
+.vscode/
+.history/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Environment variables
+.env
+
+# highCharts
+code/
+gfx/
+graphics/
+highChart_examples/
