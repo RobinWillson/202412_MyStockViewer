@@ -6,6 +6,14 @@
  */
 
 /**
+ * 2024/12/10 
+ * https://www.twse.com.tw/exchangeReport/STOCK_DAY
+ * 早上8:30~9:00似乎不能用
+ * 有時候會讀取不到資料
+ */
+
+
+/**
  * retrieve price from api
  * https://openapi.twse.com.tw/
  * 台灣證券交易所的API
@@ -19,22 +27,32 @@ const fs = require('fs').promises;
 const path = require('path');
 // use [npm root -g] to get the global node_modules path
 // const globalNodeModulesPath = 'C:/Users/9910008/AppData/Roaming/npm/node_modules';
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
+let fetch;
+const retrieveEarliestDate = "2023-01-01";
+// const retrieveStockStart="1101"
+const retrieveStockStart = "2008";
 
 async function main() {
-  let stockPriceFolder = '../A01_stockPrice_test';
+  fetch = (await import('node-fetch')).default;
+  let stockPriceFolder = '../A01_stockPrice';
   const stockPriceFiles = await fs.readdir(stockPriceFolder);
   for (const fileName of stockPriceFiles) {
     let filePath = path.join(stockPriceFolder, fileName);
     let fileNameArr = fileName.split('_');
     let stockCode = fileNameArr[0];
     console.log('stockCode:', stockCode);
+    if (parseInt(stockCode) < parseInt(retrieveStockStart)) {
+      continue;
+    }
     let priceData = await retrieveFileData(filePath);
     let { earliestDate, latestDate } = priceDataRange(priceData);
     console.log('priceData.length :', priceData.length);
     console.log('earliestDate :', earliestDate);
     console.log('latestDate :', latestDate);
+    //-- update priceData
     let apiData = await priceRetrieve(stockCode, earliestDate, latestDate);
+    //---
     let combinedData = [...apiData, ...priceData];
     let uniqueData = Array.from(new Map(combinedData.map(item => [item[0], item])).values());
     uniqueData.sort((a, b) => new Date(a[0]) - new Date(b[0]));
@@ -73,7 +91,7 @@ async function priceRetrieve(stockCode, earliestDate, latestDate) {
   let result = [];
   let range1 = [];
   let range2 = [];
-  let retrieveEarliestDate = "2024-01-01";
+  // let retrieveEarliestDate = "2024-01-01";
   //======
   if (!earliestDate || !latestDate) {
     let rng1_EarliestDate = retrieveEarliestDate;
@@ -114,14 +132,23 @@ async function dataFetch(stockCode, startDate, endDate) {
     const year = fetchDate.getFullYear();
     let response;
     try {
+      await sleep(200);
       let url = `https://www.twse.com.tw/exchangeReport/STOCK_DAY?&date=${year}${month}01&stockNo=${stockCode}`;
+      console.log('fetch url:', url);
       response = await fetch(url);
     } catch (e) {
       console.log('Error:', e);
       break;
     }
+    if (response.status !== 200) {
+      console.log('response.status:', response.status);
+      break;
+    }
     let rawData = await response.json();
     rawData = rawData.data;
+    if (!rawData || rawData.length === 0) {
+      break;
+    }
     for (let i = 0; i < rawData.length; i++) {
       // let fields= [
       //   "0.日期",
@@ -178,6 +205,9 @@ function rawDataDateTranslate(rawData) {
     return item;
   });
   return translatedData;
+}
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 main();

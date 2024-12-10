@@ -6,14 +6,22 @@
     <title>Highstock Example</title>
 
     <style type="text/css">
+      .root {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        width: 100%;
+        min-width: 800px;
+      }
       #container,
       #container_2 {
-        height: 300px;
-        min-width: 310px;
+        height: 150px;
+        /* min-width: 810px; */
       }
       #navigator-container {
         height: 100px;
-        min-width: 310px;
+        /* min-width: 310px; */
       }
     </style>
   </head>
@@ -21,9 +29,11 @@
     <script src="./code/highstock.js"></script>
     <script src="./code/modules/exporting.js"></script>
     <script src="./code/modules/accessibility.js"></script>
-    <div id="navigator-container">navigator-container</div>
-    <div id="container">container</div>
-    <div id="container_2">container_2</div>
+    <div class="root">
+      <div id="navigator-container">navigator-container</div>
+      <div id="container">container</div>
+      <div id="container_2">container_2</div>
+    </div>
 
     <script type="text/javascript">
       // Synchronize crosshairs and tooltips
@@ -114,8 +124,8 @@
         Highcharts.stockChart("navigator-container", {
           chart: {
             height: 100,
-            marginLeft: 40,
-            marginRight: 40,
+            marginLeft: 20,
+            marginRight: 20,
             zoomType: "x",
             events: {
               load: function () {
@@ -160,7 +170,7 @@
                     enabled: false, // Disable the range selector for this chart
                   },
                   navigator: {
-                    enabled: false, // Disable the navigator for this chart
+                    enabled: true, // Disable the navigator for this chart
                   },
                   scrollbar: {
                     enabled: false, // Disable the scrollbar for this chart
@@ -217,11 +227,16 @@
               visible: false, // Ensure the data is visible
             },
           ],
+          xAxis: {
+            events: {
+              setExtremes: syncExtremes,
+            },
+          },
           navigator: {
-            enabled: true, // Enable the navigator
+            enabled: false, // Enable the navigator
           },
           scrollbar: {
-            enabled: true, // Enable the scrollbar
+            enabled: false, // Enable the scrollbar
           },
           rangeSelector: {
             enabled: true, // Enable the range selector
