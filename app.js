@@ -5,7 +5,7 @@ const cors = require('cors'); // Import the cors package
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;;
 
 app.use(cors()); // Use the cors middleware
 app.use(express.static('public'));
@@ -21,8 +21,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.get('/stockPrice/:stockCode', (req, res) => {
   const stockCode = req.params.stockCode;
-  const directoryPath = path.join(__dirname, '/A01_StockPrice_test');
-  console.log('directoryPath:', directoryPath);
+  const directoryPath = path.join(__dirname, '/A01_StockPrice');
   fs.readdir(directoryPath, (err, files) => {
     if (err) {
       return res.status(500).send('Unable to scan directory');
@@ -36,6 +35,20 @@ app.get('/stockPrice/:stockCode', (req, res) => {
     const filePath = path.join(directoryPath, fileName);
     res.sendFile(filePath);
   });
+});
+app.get('/stock-list', (req, res) => {
+  const fs = require('fs');
+  const stockDir = path.join(__dirname, '/A01_StockPrice');
+  fs.readdir(stockDir, (err, files) => {
+    if (err) {
+      return res.status(500).send('Unable to scan directory');
+    }
+    res.json(files);
+  });
+});
+app.get('/class-info', (req, res) => {
+  const classInfo = require('./B01_Class/classInfo.json');
+  res.json(classInfo);
 });
 
 // Error handling

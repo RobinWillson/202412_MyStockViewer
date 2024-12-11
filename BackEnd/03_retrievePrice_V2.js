@@ -30,8 +30,8 @@ const path = require('path');
 // const fetch = require('node-fetch');
 let fetch;
 const retrieveEarliestDate = "2023-01-01";
-// const retrieveStockStart="1101"
-const retrieveStockStart = "2008";
+const retrieveStockStart = "1001";
+// const retrieveStockStart = "000";
 
 async function main() {
   fetch = (await import('node-fetch')).default;
