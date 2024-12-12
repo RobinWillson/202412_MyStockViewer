@@ -1,0 +1,12 @@
+.stock-Chart {
+  height: 250px;
+  margin: 10px 0; /* Optional: Add some spacing between the divs */
+}
+.chart-row {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 800px;
+}
