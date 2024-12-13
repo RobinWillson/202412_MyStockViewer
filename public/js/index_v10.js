@@ -59,18 +59,10 @@ document.getElementById('stock-code-search-btn').addEventListener('click', async
 
 document.getElementById('renderChartsBtn').addEventListener('click', async function () {
   hideError();
-  const stockCode = document.getElementById('stock-code-search').value;
-  const classKey = document.querySelector('#class-selection').value;
-  if (!stockCode) {
-    displayError('Please enter a stock code.');
-    return;
-  }
-  if (!classKey) {
-    displayError('Please select a class.');
-    return;
-  }
+  renderChartsHandler();
+  return;
+
   // -----------
-  let classList = classListObj[classKey];
 
   console.log('classList 001:', classList);
   for (let key in classList) {
@@ -114,7 +106,175 @@ document.getElementById('renderChartsBtn').addEventListener('click', async funct
 });
 
 //--- Custom Function
+async function renderChartsHandler() {
+  let { stockCode, classKey } = await getInput();
+  let checkInputResult = checkInput(stockCode, classKey);
+  if (!checkInputResult) {
+    alert('checkInputResult Fail');
+    return;
+  }
+  let stockCodeListInClass = retrieveExistStockCodeList(classKey);
+  let stockDataList = managerStockPriceData(stockCodeListInClass);
 
+  // dataFilter(classKey);
+  //-----
+  async function getInput() {
+    const stockCode = document.getElementById('stock-code-search').value;
+    const classKey = document.querySelector('#class-selection').value;
+    if (!stockCode) {
+      displayError('Please enter a stock code.');
+      return;
+    }
+    if (!classKey) {
+      displayError('Please select a class.');
+      return;
+    }
+    return { stockCode, classKey };
+  }
+  function checkInput(stockCode, classKey) {
+    if (!stockListArr.some(stock => stock.includes(stockCode))) {
+      displayError('股票代碼不存在於資料庫');
+      return false;
+    }
+    console.log("股票代碼存在於資料庫");
+
+    if (!classListObj[classKey]) {
+      displayError('類號不存在於資料庫');
+      return false;
+    }
+    console.log("類號存在於資料庫");
+
+    let classList = classListObj[classKey];
+    let check = classList.some(item => {
+      return item.code == parseInt(stockCode);
+    });
+    if (!check) {
+      displayError('股票代碼不存在於此類號');
+      return false;
+    }
+    console.log("股票代碼存在於此類號");
+    //----
+    return true;
+
+  }
+  function retrieveExistStockCodeList(classKey) {
+    let classList = classListObj[classKey];
+    console.log('classList 001:', classList);
+    let stockCodeListInClass = [];
+    classList.forEach(item => {
+      let checkStockCode = stockListArr.some(stock =>
+        stock.includes(item.code)
+      );
+      if (checkStockCode) {
+        stockCodeListInClass.push(item.code);
+      }
+    });
+    return stockCodeListInClass;
+  }
+  async function managerStockPriceData(stockCodeListInClass) {
+    let result = [];
+    stockCodeListInClass.forEach(async stockCode => {
+      let resultItem = { code: "", price: [] };
+      resultItem.code = stockCode;
+      resultItem.price = retrievePrice(stockCode);
+      result.push(resultItem);
+      console.log("resultItem", resultItem);
+    });
+
+    async function retrievePrice(stockCode) {
+      let response = await fetch(`http://localhost:3000/stockPrice/${stockCode}`);
+      const data0 = await response.json();
+      let data1 = data0.map((item) => {
+        const timestamp = new Date(item[0]).getTime();
+        const values = item.slice(1, 5).map(Number);
+        return [timestamp, ...values];
+      });
+      return data1;
+    }
+
+    function unifyDataLength(dataInput) {
+      //dataInput :[{code:xxx, price:[arr5]} ]
+      let allDate = [];
+      dataInput.forEach(item => {
+        allDate = allDate.concat(item.price.map(data => data[0]));
+      });
+      return allDate;
+    }
+
+    function fillNullValues(data) {
+      // Find the first non-null data
+      let firstNonNull = data.find((item) =>
+        item.slice(1).some((value) => value !== null)
+      );
+      let lastNonNull = [...data]
+        .reverse()
+        .find((item) => item.slice(1).some((value) => value !== null));
+
+      // Fill null values at the beginning with the first non-null data
+      let filledData = [];
+      let filling = true;
+      for (let item of data) {
+        if (filling && item.slice(1).every((value) => value === null)) {
+          filledData.push([
+            item[0],
+            firstNonNull[1],
+            firstNonNull[1],
+            firstNonNull[1],
+            firstNonNull[1],
+          ]);
+        } else {
+          filling = false;
+          filledData.push(item);
+        }
+      }
+
+      // Fill null values at the end with the last non-null data
+      filledData = filledData.reverse();
+      filling = true;
+      for (let i = 0; i < filledData.length; i++) {
+        let item = filledData[i];
+        if (filling && item.slice(1).every((value) => value === null)) {
+          filledData[i] = [
+            item[0],
+            lastNonNull[4],
+            lastNonNull[4],
+            lastNonNull[4],
+            lastNonNull[4],
+          ];
+        } else {
+          filling = false;
+        }
+      }
+      filledData = filledData.reverse();
+
+      // Fill null values in the middle with the nearest earlier non-null value
+      for (let i = 1; i < filledData.length; i++) {
+        let item = filledData[i];
+        if (item.slice(1).every((value) => value === null)) {
+          let j = i - 1;
+          while (
+            j >= 0 &&
+            filledData[j].slice(1).every((value) => value === null)
+          ) {
+            j--;
+          }
+          let prevItem = filledData[j];
+          filledData[i] = [
+            item[0],
+            prevItem[4],
+            prevItem[4],
+            prevItem[4],
+            prevItem[4],
+          ];
+        }
+      }
+
+      return filledData;
+    }
+
+  }
+
+}
 
 //--- Common Function
 function displayError(message) {
