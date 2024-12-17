@@ -83,6 +83,7 @@ async function renderChartsHandler() {
   console.log("stockDataList", stockDataList);
 
   // render charts
+  await renderChart0(stockDataList);
   await renderCharts(stockDataList);
   chartsSync(chartArr);
   console.log("chart Render Done");
@@ -282,6 +283,61 @@ async function renderChartsHandler() {
       }
       let sortedDates = Array.from(allDate).sort((a, b) => new Date(a) - new Date(b)); // Sort dates
       return sortedDates;
+    }
+  }
+  async function renderChart0(stockDataList) {
+    let stock = stockDataList[0];
+    let stockCode = stock.code;
+    let stockName = stock.name;
+    let stockPrice = stock.price;
+    let chartId = `chart-0`; // Removed the '#' from the chartId
+    let chartTitle = `Stock Price History: ${stockName} (${stockCode})`;
+    let chartData = stockPrice;
+    let chart = document.getElementById(chartId); // Correctly select the chart element
+    let chartElement = renderChart(chartId, chartTitle, chartData);
+    chartArr.push(chartElement);
+
+    function renderChart(chartId, chartTitle, chartData) {
+      const chartElement = Highcharts.stockChart(chartId, {
+        chart: {
+          height: chartId === 'chart-0' ? 100 : null, // Set height for chart-0
+        },
+        rangeSelector: {
+          selected: 1,
+          enabled: false, // Disable the range selector for this chart
+        },
+        navigator: {
+          enabled: true, // Disable the navigator for this chart
+        },
+        scrollbar: {
+          enabled: true, // Disable the scrollbar for this chart
+        },
+        xAxis: {
+          events: {
+            setExtremes: syncExtremes,
+          },
+          min: chartData[0][0],
+          max: chartData[chartData.length - 1][0],
+        },
+        series: [
+          {
+            type: "candlestick",
+            data: chartData,
+            visible: false,
+            dataGrouping: {
+              units: [
+                ["day", [1]],
+                ["week", [1]],
+                ["month", [1, 2, 3, 4, 6]],
+              ],
+            },
+          },
+        ],
+        exporting: {
+          enabled: false // Disable the exporting menu
+        }
+      });
+      return chartElement;
     }
   }
   async function renderCharts(stockDataList) {

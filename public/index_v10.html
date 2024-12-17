@@ -39,8 +39,8 @@ https://cdn.jsdelivr.net/npm/bootstrap-alerts@1.2.2/bootstrap-alerts.min.js
       </div>
       <!-- Updated -->
       <div id="operator" class="container-fluid card">
-        <div class="row">
-          <div class="col p-2 d-flex align-items-center">
+        <div class="row" id="operator-row">
+          <div class="col-2 p-2 d-flex align-items-center">
             <div class="input-group input-group-sm">
               <input
                 type="text"
@@ -58,7 +58,9 @@ https://cdn.jsdelivr.net/npm/bootstrap-alerts@1.2.2/bootstrap-alerts.min.js
               </button>
             </div>
           </div>
-          <div class="col p-2 d-flex align-items-center">
+          <div
+            class="col-4 p-2 d-flex align-items-center justify-content-center"
+          >
             <div class="input-group input-group-sm">
               <select class="form-select" id="class-selection">
                 <option selected>分類選擇...</option>
@@ -69,20 +71,22 @@ https://cdn.jsdelivr.net/npm/bootstrap-alerts@1.2.2/bootstrap-alerts.min.js
               <!-- <label class="input-group-text" for="class-selection"
                 >Options</label
               > -->
+              <button
+                class="btn btn-sm btn-outline-secondary"
+                type="button"
+                id="renderChartsBtn"
+              >
+                開始繪圖
+              </button>
             </div>
           </div>
-          <div class="col p-2 d-flex align-items-center">
-            <button
-              class="btn btn-sm btn-outline-secondary"
-              type="button"
-              id="renderChartsBtn"
-            >
-              開始繪圖
-            </button>
+          <div class="col-6 p-2 d-flex align-items-center">
+            <div id="chart-0"></div>
           </div>
           <div class="col"></div>
         </div>
       </div>
+      <!--  -->
       <div id="chart-zone" class="container-fluid">
         <div class="row" id="chart-nav"></div>
         <div class="row chart-row" id="chart-row-1">

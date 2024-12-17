@@ -10,3 +10,12 @@
   width: 100%;
   min-width: 800px;
 }
+
+#operator {
+  height: 100px;
+}
+
+#chart-0 {
+  height: 100px; /* Set a fixed height */
+  height: calc(100% - 20px); /* Adjust height based on container's height */
+}
