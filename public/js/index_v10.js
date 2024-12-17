@@ -1,6 +1,6 @@
-
 let stockListArr = [];
 let classListObj = {};
+let chartArr = [];
 document.addEventListener("DOMContentLoaded", async function () {
   const stockListResponse = await fetch('/stock-list');
   stockListArr = await stockListResponse.json();
@@ -63,46 +63,6 @@ document.getElementById('renderChartsBtn').addEventListener('click', async funct
   return;
 
   // -----------
-
-  console.log('classList 001:', classList);
-  for (let key in classList) {
-    let stockCode = classList[key].code;
-    if (!stockListArr.some(stock => stock.includes(stockCode))) {
-      console.log(`${stockCode} not found in stock list.`);
-      continue;
-    }
-    let res = await fetch(`/stockPrice/${classList[key].code}`);
-    let result = await res.json() || [];
-    console.log("key", classList[key].code);
-    console.log(result.length);
-    classList[key].data = result;
-  }
-  console.log('classList 002:', classList);
-  return;
-  Highcharts.chart('chart-1', {
-    chart: {
-      type: 'line',
-      height: '100%'
-    },
-    title: {
-      text: 'Stock Price History'
-    },
-    subtitle: {
-      text: `Stock Code: ${stockCode}`
-    },
-    xAxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    },
-    yAxis: {
-      title: {
-        text: 'Price (USD)'
-      }
-    },
-    series: [{
-      name: stockCode,
-      data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4] // Example data
-    }]
-  });
 });
 
 //--- Custom Function
@@ -113,11 +73,20 @@ async function renderChartsHandler() {
     alert('checkInputResult Fail');
     return;
   }
+  //----------------
+  // retrieve stockCode form classList, remove the stockCode not in stockListArr
   let stockCodeListInClass = retrieveExistStockCodeList(classKey);
-  let stockDataList = managerStockPriceData(stockCodeListInClass);
+  console.log("stockCodeListInClass", stockCodeListInClass);
 
-  // dataFilter(classKey);
-  //-----
+  // retrieve stockPrice from stockCodeListInClass
+  let stockDataList = await managerStockPriceData(stockCodeListInClass);
+  console.log("stockDataList", stockDataList);
+
+  // render charts
+  await renderCharts(stockDataList);
+  chartsSync(chartArr);
+  console.log("chart Render Done");
+  //==== functions ====
   async function getInput() {
     const stockCode = document.getElementById('stock-code-search').value;
     const classKey = document.querySelector('#class-selection').value;
@@ -159,7 +128,6 @@ async function renderChartsHandler() {
   }
   function retrieveExistStockCodeList(classKey) {
     let classList = classListObj[classKey];
-    console.log('classList 001:', classList);
     let stockCodeListInClass = [];
     classList.forEach(item => {
       let checkStockCode = stockListArr.some(stock =>
@@ -172,65 +140,68 @@ async function renderChartsHandler() {
     return stockCodeListInClass;
   }
   async function managerStockPriceData(stockCodeListInClass) {
-    let result = [];
-    stockCodeListInClass.forEach(async stockCode => {
+
+    let stockDataList = [];
+    for (let stockCode of stockCodeListInClass) {
       let resultItem = { code: "", price: [] };
       resultItem.code = stockCode;
-      resultItem.price = retrievePrice(stockCode);
-      result.push(resultItem);
-      console.log("resultItem", resultItem);
-    });
-
-    async function retrievePrice(stockCode) {
-      let response = await fetch(`http://localhost:3000/stockPrice/${stockCode}`);
-      const data0 = await response.json();
-      let data1 = data0.map((item) => {
-        const timestamp = new Date(item[0]).getTime();
-        const values = item.slice(1, 5).map(Number);
-        return [timestamp, ...values];
-      });
-      return data1;
+      resultItem.name = retrieveName(stockCode);
+      resultItem.price = await retrievePrice(stockCode);
+      stockDataList.push(resultItem);
     }
-
-    function unifyDataLength(dataInput) {
-      //dataInput :[{code:xxx, price:[arr5]} ]
-      let allDate = [];
-      dataInput.forEach(item => {
-        allDate = allDate.concat(item.price.map(data => data[0]));
-      });
-      return allDate;
+    // get longest date length from stockDataList, return Dates Array
+    let filledStockDataList = [];
+    let unifiedDate = unifyDataLength(stockDataList);
+    for (let i = 0; i < stockDataList.length; i++) {
+      let stock = stockDataList[i];
+      let fillMissingDatesByNull = fillMissingDates(stock.price, unifiedDate);
+      let filledFirstNullList = fillFirstNull(fillMissingDatesByNull);
+      let fillLastNullList = fillLastNull(filledFirstNullList);
+      let filledData = fillMiddleNull(fillLastNullList);
+      stock.price = filledData;
+      filledStockDataList.push(stock);
     }
+    return filledStockDataList;
+    //=== Functions
+    function fillMissingDates(data, sortedDates) {
+      const dateMap = new Map(data.map((item) => [item[0], item]));
+      return sortedDates.map(
+        (date) => dateMap.get(date) || [date, null, null, null, null]
+      );
+    }
+    function fillFirstNull(data) {
+      // Create a copy of the data to avoid modifying the original array
+      let dataCopy = data.map(item => [...item]);
 
-    function fillNullValues(data) {
       // Find the first non-null data
-      let firstNonNull = data.find((item) =>
+      let firstNonNull = dataCopy.find((item) =>
         item.slice(1).some((value) => value !== null)
       );
-      let lastNonNull = [...data]
+
+      // Fill null values at the beginning with the first non-null data
+      for (let i = 0; i < dataCopy.length; i++) {
+        if (dataCopy[i].slice(1).every((value) => value === null)) {
+          dataCopy[i] = [...firstNonNull];
+        } else {
+          break;
+        }
+      }
+
+      return dataCopy;
+    }
+    function fillLastNull(data) {
+      // Find the last non-null data
+      let dataCopy = data.map(item => [...item]);
+
+      let lastNonNull = [...dataCopy]
         .reverse()
         .find((item) => item.slice(1).some((value) => value !== null));
 
       // Fill null values at the beginning with the first non-null data
       let filledData = [];
       let filling = true;
-      for (let item of data) {
-        if (filling && item.slice(1).every((value) => value === null)) {
-          filledData.push([
-            item[0],
-            firstNonNull[1],
-            firstNonNull[1],
-            firstNonNull[1],
-            firstNonNull[1],
-          ]);
-        } else {
-          filling = false;
-          filledData.push(item);
-        }
-      }
-
       // Fill null values at the end with the last non-null data
-      filledData = filledData.reverse();
-      filling = true;
+      filledData = dataCopy.reverse();
       for (let i = 0; i < filledData.length; i++) {
         let item = filledData[i];
         if (filling && item.slice(1).every((value) => value === null)) {
@@ -246,9 +217,14 @@ async function renderChartsHandler() {
         }
       }
       filledData = filledData.reverse();
-
-      // Fill null values in the middle with the nearest earlier non-null value
-      for (let i = 1; i < filledData.length; i++) {
+      return filledData;
+    }
+    function fillMiddleNull(data) {
+      // Find the last non-null data
+      let dataCopy = data.map(item => [...item]);
+      let filledData = [];
+      filledData = dataCopy;
+      for (let i = 0; i < filledData.length; i++) {
         let item = filledData[i];
         if (item.slice(1).every((value) => value === null)) {
           let j = i - 1;
@@ -268,13 +244,164 @@ async function renderChartsHandler() {
           ];
         }
       }
-
       return filledData;
     }
+    function retrieveName(stockCode) {
+      let result;
+      let test = stockListArr.some(stock => {
+        if (stock.includes(stockCode)) {
+          stock = stock.replace('.json', ' ');
+          result = stock.split('_')[1];
+          return true;
+        }
+      });
+      if (test) {
+        return result;
+      } else {
+        return false;
+      }
+    }
+    async function retrievePrice(stockCode) {
+      let response = await fetch(`http://localhost:3000/stockPrice/${stockCode}`);
+      const data0 = await response.json();
+      let data1 = data0.map((item) => {
+        const timestamp = new Date(item[0]).getTime();
+        const values = item.slice(1, 5).map(Number);
+        return [timestamp, ...values];
+      });
+      return data1;
+    }
 
+    function unifyDataLength(dataInput) {
+      // dataInput :[{code:xxx, price:[arr5]} ]
+      let allDate = new Set();
+      for (let item of dataInput) {
+        for (let data of item.price) {
+          allDate.add(data[0]); // Add the date to the Set
+        }
+      }
+      let sortedDates = Array.from(allDate).sort((a, b) => new Date(a) - new Date(b)); // Sort dates
+      return sortedDates;
+    }
+  }
+  async function renderCharts(stockDataList) {
+    for (let i = 0; i < stockDataList.length; i++) {
+      let stock = stockDataList[i];
+      let stockCode = stock.code;
+      let stockName = stock.name;
+      let stockPrice = stock.price;
+      let chartId = `chart-${i + 1}`; // Removed the '#' from the chartId
+      let chartTitle = `Stock Price History: ${stockName} (${stockCode})`;
+      let chartData = stockPrice;
+      let chart = document.getElementById(chartId); // Correctly select the chart element
+      let chartElement = renderChart(chartId, chartTitle, chartData);
+      chartArr.push(chartElement);
+    }
+
+    function renderChart(chartId, chartTitle, chartData) {
+      const chartElement = Highcharts.stockChart(chartId, {
+        rangeSelector: {
+          selected: 1,
+          enabled: false, // Disable the range selector for this chart
+        },
+        title: {
+          text: chartTitle
+        },
+        navigator: {
+          enabled: true, // Disable the navigator for this chart
+        },
+        scrollbar: {
+          enabled: true, // Disable the scrollbar for this chart
+        },
+        xAxis: {
+          events: {
+            setExtremes: syncExtremes,
+          },
+          min: chartData[0][0],
+          max: chartData[chartData.length - 1][0],
+        },
+        series: [
+          {
+            type: "candlestick",
+            data: chartData,
+            dataGrouping: {
+              units: [
+                ["day", [1]],
+                ["week", [1]],
+                ["month", [1, 2, 3, 4, 6]],
+              ],
+            },
+          },
+        ],
+      });
+      return chartElement;
+    }
+  }
+  async function chartsSync(chartArr) {
+    for (let i = 0; i < chartArr.length; i++) {
+      let newChartArr = [];
+      let chart = chartArr[i];
+      let charts = chartArr.filter((c) => c !== chart);
+      newChartArr = [chart, ...charts];
+      syncTooltip(chart.container, newChartArr);
+    }
   }
 
 }
+Highcharts.Pointer.prototype.reset = function () {
+  return undefined;
+};
+
+function syncExtremes(e) {
+  var thisChart = this.chart;
+  if (e.trigger !== "syncExtremes") {
+    Highcharts.charts.forEach(function (chart) {
+      if (chart !== thisChart) {
+        if (chart.xAxis[0].setExtremes) {
+          chart.xAxis[0].setExtremes(e.min, e.max, undefined, false, {
+            trigger: "syncExtremes",
+          });
+        }
+      }
+    });
+  }
+}
+
+function syncTooltip(container, charts) {
+  container.addEventListener("click", function (e) {
+    var event, chart, i, xAxisValue;
+
+    // Normalize the event to get the x-axis value (date)
+    event = charts[0].pointer.normalize(e);
+    xAxisValue = charts[0].xAxis[0].toValue(event.chartX);
+    // Round xAxisValue to the start of the day (midnight)
+    var date = new Date(xAxisValue);
+    date.setHours(0, 0, 0, 0);
+    xAxisValue = date.getTime();
+
+    for (i = 0; i < charts.length; i++) {
+      chart = charts[i];
+      event = chart.pointer.normalize(e);
+
+      // Find the closest point in the series based on the x-axis value (date)
+      var point = chart.series[0].points.reduce((closest, p) => {
+        return Math.abs(p.x - xAxisValue) <
+          Math.abs(closest.x - xAxisValue)
+          ? p
+          : closest;
+      }, chart.series[0].points[0]);
+      if (point && Math.abs(point.x - xAxisValue) < 24 * 3600 * 1000) {
+        // Ensure the point is within the same day
+        point.highlight(e);
+      }
+    }
+  });
+}
+Highcharts.Point.prototype.highlight = function (event) {
+  this.onMouseOver();
+  this.series.chart.tooltip.refresh(this);
+  this.series.chart.xAxis[0].drawCrosshair(event, this);
+};
 
 //--- Common Function
 function displayError(message) {
