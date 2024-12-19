@@ -85,7 +85,7 @@ async function renderChartsHandler() {
   // render charts
   await renderChart0(stockDataList);
   await renderCharts(stockDataList);
-  chartsSync(chartArr);
+  await chartsSync(chartArr);
   console.log("chart Render Done");
   //==== functions ====
   async function getInput() {
@@ -316,6 +316,7 @@ async function renderChartsHandler() {
           events: {
             setExtremes: syncExtremes,
           },
+          visible: false,
           min: chartData[0][0],
           max: chartData[chartData.length - 1][0],
         },
@@ -347,7 +348,7 @@ async function renderChartsHandler() {
       let stockName = stock.name;
       let stockPrice = stock.price;
       let chartId = `chart-${i + 1}`; // Removed the '#' from the chartId
-      let chartTitle = `Stock Price History: ${stockName} (${stockCode})`;
+      let chartTitle = `${stockName} (${stockCode})`;
       let chartData = stockPrice;
       let chart = document.getElementById(chartId); // Correctly select the chart element
       let chartElement = renderChart(chartId, chartTitle, chartData);
@@ -364,7 +365,7 @@ async function renderChartsHandler() {
           text: chartTitle
         },
         navigator: {
-          enabled: true, // Disable the navigator for this chart
+          enabled: false, // Disable the navigator for this chart
         },
         scrollbar: {
           enabled: true, // Disable the scrollbar for this chart
@@ -397,7 +398,10 @@ async function renderChartsHandler() {
     for (let i = 0; i < chartArr.length; i++) {
       let newChartArr = [];
       let chart = chartArr[i];
-      let charts = chartArr.filter((c) => c !== chart);
+      if (chart.renderTo.id === "chart-0") {
+        continue; // Skip the chart with container "chart-0"
+      }
+      let charts = chartArr.filter((c) => c !== chart && c.renderTo.id !== "chart-0");
       newChartArr = [chart, ...charts];
       syncTooltip(chart.container, newChartArr);
     }
@@ -434,19 +438,21 @@ function syncTooltip(container, charts) {
     var date = new Date(xAxisValue);
     date.setHours(0, 0, 0, 0);
     xAxisValue = date.getTime();
-
     for (i = 0; i < charts.length; i++) {
       chart = charts[i];
       event = chart.pointer.normalize(e);
-
       // Find the closest point in the series based on the x-axis value (date)
+      console.log("chart.renderTo.id", chart.renderTo.id);
       var point = chart.series[0].points.reduce((closest, p) => {
         return Math.abs(p.x - xAxisValue) <
           Math.abs(closest.x - xAxisValue)
           ? p
           : closest;
       }, chart.series[0].points[0]);
-      if (point && Math.abs(point.x - xAxisValue) < 24 * 3600 * 1000) {
+      console.log("point", Boolean(point));
+      console.log("point value", Math.abs(point.x - xAxisValue) < (24 * 3600 * 1000));
+      // if (point && Math.abs(point.x - xAxisValue) < 24 * 3600 * 1000) {
+      if (point && Math.abs(point.x - xAxisValue)) {
         // Ensure the point is within the same day
         point.highlight(e);
       }
@@ -454,10 +460,12 @@ function syncTooltip(container, charts) {
   });
 }
 Highcharts.Point.prototype.highlight = function (event) {
-  this.onMouseOver();
-  this.series.chart.tooltip.refresh(this);
-  this.series.chart.xAxis[0].drawCrosshair(event, this);
+  this.setState('select');
+  this.series.chart.xAxis[0].drawCrosshair(event, this); // Draw the crosshair
+  this.series.chart.tooltip.hide(); // Hide the tooltip
 };
+
+
 
 //--- Common Function
 function displayError(message) {
