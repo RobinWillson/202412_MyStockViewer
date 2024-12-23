@@ -300,7 +300,7 @@ async function renderChartsHandler() {
     function renderChart(chartId, chartTitle, chartData) {
       const chartElement = Highcharts.stockChart(chartId, {
         chart: {
-          height: chartId === 'chart-0' ? 100 : null, // Set height for chart-0
+          height: chartId === 'chart-0' ? 70 : null, // Set height for chart-0
         },
         rangeSelector: {
           selected: 1,
@@ -308,6 +308,7 @@ async function renderChartsHandler() {
         },
         navigator: {
           enabled: true, // Disable the navigator for this chart
+          height: 20, // Set height for the navigator
         },
         scrollbar: {
           enabled: true, // Disable the scrollbar for this chart
@@ -338,6 +339,10 @@ async function renderChartsHandler() {
           enabled: false // Disable the exporting menu
         }
       });
+      chartElement.container.querySelector('.highcharts-background').style.display = 'none';
+
+      chartElement.container.querySelector('.highcharts-plot-background').style.display = 'none';
+
       return chartElement;
     }
   }
@@ -381,6 +386,7 @@ async function renderChartsHandler() {
           {
             type: "candlestick",
             data: chartData,
+            stickyTracking: false,
             dataGrouping: {
               units: [
                 ["day", [1]],
@@ -432,6 +438,7 @@ function syncTooltip(container, charts) {
     var event, chart, i, xAxisValue;
 
     // Normalize the event to get the x-axis value (date)
+    charts[0].pointer.reset = function () { return undefined; };
     event = charts[0].pointer.normalize(e);
     xAxisValue = charts[0].xAxis[0].toValue(event.chartX);
     // Round xAxisValue to the start of the day (midnight)
@@ -460,12 +467,13 @@ function syncTooltip(container, charts) {
   });
 }
 Highcharts.Point.prototype.highlight = function (event) {
-  this.setState('select');
+  // this.setState('select');
+  // this.select('false');
+  // this.onMouseOut();
+  this.onMouseOver();
   this.series.chart.xAxis[0].drawCrosshair(event, this); // Draw the crosshair
   this.series.chart.tooltip.hide(); // Hide the tooltip
 };
-
-
 
 //--- Common Function
 function displayError(message) {
