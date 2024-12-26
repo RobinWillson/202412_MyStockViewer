@@ -1,7 +1,6 @@
 let stockListArr = [];
 let classListObj = {};
 let chartArr = [];
-let allChartsInitialized = false;
 
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -62,7 +61,9 @@ document.getElementById('stock-code-search-btn').addEventListener('click', async
 
 document.getElementById('renderChartsBtn').addEventListener('click', async function () {
   hideError();
-  renderChartsHandler();
+  await clearCharts();
+  chartArr = [];
+  await renderChartsHandler();
   return;
 
   // -----------
@@ -70,8 +71,6 @@ document.getElementById('renderChartsBtn').addEventListener('click', async funct
 
 //--- Custom Function
 async function renderChartsHandler() {
-  allChartsInitialized = false;
-  chartArr = [];
   //----------------
   let { stockCode, classKey } = await getInput();
   let checkInputResult = checkInput(stockCode, classKey);
@@ -92,15 +91,16 @@ async function renderChartsHandler() {
   console.log("stockDataList", stockDataList);
 
   // Remove all existing Highcharts
-  if (chartArr && chartArr.length > 0) {
-    console.log("chartArr", chartArr);
-    chartArr.forEach(chart => chart.destroy());
-    chartArr = [];
-  }
-  let chartElements = document.querySelectorAll('.chartCustom');
-  chartElements.forEach((element) => {
-    element.innerHTML = "";
-  });
+  // Highcharts.charts.forEach((chart) => chart.destroy());
+  // if (chartArr && chartArr.length > 0) {
+  //   console.log("chartArr", chartArr);
+  //   chartArr.forEach(chart => chart.destroy());
+  //   chartArr = [];
+  // }
+  // let chartElements = document.querySelectorAll('.chartCustom');
+  // chartElements.forEach((element) => {
+  //   element.innerHTML = "";
+  // });
   chartArr = [];
 
   // render charts
@@ -445,7 +445,6 @@ async function renderChartsHandler() {
       }
       chartArr.push(chartElement);
     }
-    allChartsInitialized = true;
     //--------
     function renderChart(chartId, chartTitle, chartData) {
       const chartElement = Highcharts.stockChart(chartId, {
@@ -627,8 +626,10 @@ Highcharts.Pointer.prototype.reset = function () {
 };
 
 function syncExtremes(e) {
-  var thisChart = this.chart;
+  let thisChart = this.chart;
   if (e.trigger !== "syncExtremes") {
+    // let theCharts = Highcharts.charts;
+    // console.log("theCharts", theCharts);
     Highcharts.charts.forEach(function (chart) {
       if (chart !== thisChart) {
         if (chart.xAxis[0].setExtremes) {
@@ -683,6 +684,14 @@ Highcharts.Point.prototype.highlight = function (event) {
   this.series.chart.tooltip.hide(); // Hide the tooltip
 };
 
+async function clearCharts() {
+  Highcharts.charts.forEach((chart) => {
+    if (chart) {
+      chart.destroy();
+    }
+  });
+  Highcharts.charts.length = 0;
+}
 //--- Common Function
 function displayError(message) {
   const warningDiv = document.querySelector('#warning');
