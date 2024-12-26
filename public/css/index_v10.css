@@ -1,5 +1,5 @@
 .stock-chart {
-  height: 250px;
+  height: 200px;
   margin: 10px 0; /* Optional: Add some spacing between the divs */
 }
 .chart-row {
@@ -18,4 +18,13 @@
 #chart-0 {
   height: 50px; /* Set a fixed height */
   /* height: calc(100% - 20px); Adjust height based on container's height */
+}
+
+#warning {
+  padding: 0.1rem 1rem;
+  font-size: small;
+}
+
+.warning-message {
+  padding: inherit;
 }

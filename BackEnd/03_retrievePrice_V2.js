@@ -25,13 +25,9 @@
 
 const fs = require('fs').promises;
 const path = require('path');
-// use [npm root -g] to get the global node_modules path
-// const globalNodeModulesPath = 'C:/Users/9910008/AppData/Roaming/npm/node_modules';
-// const fetch = require('node-fetch');
 let fetch;
 const retrieveEarliestDate = "2023-01-01";
-const retrieveStockStart = "1001";
-// const retrieveStockStart = "000";
+const retrieveStockStart = "1000";
 
 async function main() {
   fetch = (await import('node-fetch')).default;
@@ -165,10 +161,10 @@ async function dataFetch(stockCode, startDate, endDate) {
       let tradeShares = rawData[i][1].replace(/,/g, '');
       let tradeValue = rawData[i][2].replace(/,/g, '');
       let tradeCount = rawData[i][8].replace(/,/g, '');
-      let openPrice = rawData[i][3];
-      let highPrice = rawData[i][4];
-      let lowPrice = rawData[i][5];
-      let closePrice = rawData[i][6];
+      let openPrice = rawData[i][3].replace(",", "");
+      let highPrice = rawData[i][4].replace(",", "");
+      let lowPrice = rawData[i][5].replace(",", "");
+      let closePrice = rawData[i][6].replace(",", "");
 
       let newData = [
         date,

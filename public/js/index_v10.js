@@ -1,6 +1,9 @@
 let stockListArr = [];
 let classListObj = {};
 let chartArr = [];
+let allChartsInitialized = false;
+
+
 document.addEventListener("DOMContentLoaded", async function () {
   const stockListResponse = await fetch('/stock-list');
   stockListArr = await stockListResponse.json();
@@ -67,6 +70,9 @@ document.getElementById('renderChartsBtn').addEventListener('click', async funct
 
 //--- Custom Function
 async function renderChartsHandler() {
+  allChartsInitialized = false;
+  chartArr = [];
+  //----------------
   let { stockCode, classKey } = await getInput();
   let checkInputResult = checkInput(stockCode, classKey);
   if (!checkInputResult) {
@@ -74,13 +80,28 @@ async function renderChartsHandler() {
     return;
   }
   //----------------
-  // retrieve stockCode form classList, remove the stockCode not in stockListArr
+  const classListResponse = await fetch('/class-info');
+  classListObj = await classListResponse.json();
+  //--------
   let stockCodeListInClass = retrieveExistStockCodeList(classKey);
   console.log("stockCodeListInClass", stockCodeListInClass);
+  console.log("classListObj", classListObj[classKey]);
 
   // retrieve stockPrice from stockCodeListInClass
-  let stockDataList = await managerStockPriceData(stockCodeListInClass);
+  let stockDataList = await managerStockPriceData(stockCodeListInClass, classKey);
   console.log("stockDataList", stockDataList);
+
+  // Remove all existing Highcharts
+  if (chartArr && chartArr.length > 0) {
+    console.log("chartArr", chartArr);
+    chartArr.forEach(chart => chart.destroy());
+    chartArr = [];
+  }
+  let chartElements = document.querySelectorAll('.chartCustom');
+  chartElements.forEach((element) => {
+    element.innerHTML = "";
+  });
+  chartArr = [];
 
   // render charts
   await renderChart0(stockDataList);
@@ -130,17 +151,43 @@ async function renderChartsHandler() {
   function retrieveExistStockCodeList(classKey) {
     let classList = classListObj[classKey];
     let stockCodeListInClass = [];
+    let errorList = [];
+
+    // check if order property exists, if not, set it to 9
+    classList.forEach((item) => {
+      if (!item.hasOwnProperty('order')) {
+        item.order = 9;
+      } else {
+        item.order = parseInt(item.order);
+      }
+      console.log(item.code, item.name, item.order);
+    });
+
+    // sort classList by order
+    classList.sort((a, b) => {
+      return a.order - b.order;
+    });
+
+    // check if stock code exists in the stock list
     classList.forEach(item => {
       let checkStockCode = stockListArr.some(stock =>
         stock.includes(item.code)
       );
       if (checkStockCode) {
         stockCodeListInClass.push(item.code);
+      } else {
+        let str = `${item.name}(${item.code})`;
+        errorList.push(str);
       }
     });
+    if (errorList.length > 0) {
+      let errorMessage = errorList.join(', ');
+      displayError(`以下股票代碼不存在於資料庫: ${errorMessage}`);
+    }
+
     return stockCodeListInClass;
   }
-  async function managerStockPriceData(stockCodeListInClass) {
+  async function managerStockPriceData(stockCodeListInClass, classKey) {
 
     let stockDataList = [];
     for (let stockCode of stockCodeListInClass) {
@@ -148,6 +195,7 @@ async function renderChartsHandler() {
       resultItem.code = stockCode;
       resultItem.name = retrieveName(stockCode);
       resultItem.price = await retrievePrice(stockCode);
+      resultItem.Order = classListObj[classKey].find(item => item.code == stockCode).order;
       stockDataList.push(resultItem);
     }
     // get longest date length from stockDataList, return Dates Array
@@ -155,20 +203,30 @@ async function renderChartsHandler() {
     let unifiedDate = unifyDataLength(stockDataList);
     for (let i = 0; i < stockDataList.length; i++) {
       let stock = stockDataList[i];
-      let fillMissingDatesByNull = fillMissingDates(stock.price, unifiedDate);
+      // console.log("fill Data : ", stock.code);
+      let fillMissingDatesByNull = fillMissingDates(stock, unifiedDate);
+      // console.log("fillMissingDatesByNull", fillMissingDatesByNull);
       let filledFirstNullList = fillFirstNull(fillMissingDatesByNull);
+      // console.log("filledFirstNullList", filledFirstNullList);
       let fillLastNullList = fillLastNull(filledFirstNullList);
+      // console.log("fillLastNullList", fillLastNullList);
       let filledData = fillMiddleNull(fillLastNullList);
+      // console.log("filledData", filledData);
       stock.price = filledData;
       filledStockDataList.push(stock);
     }
     return filledStockDataList;
     //=== Functions
-    function fillMissingDates(data, sortedDates) {
-      const dateMap = new Map(data.map((item) => [item[0], item]));
-      return sortedDates.map(
-        (date) => dateMap.get(date) || [date, null, null, null, null]
-      );
+    function fillMissingDates(stock, sortedDates) {
+      let priceData = stock.price;
+      let code = stock.code;
+      const dateMap = new Map(priceData.map((item) => [item[0], item]));
+      return sortedDates.map((date) => {
+        if (!dateMap.has(date)) {
+          console.log(`Missing date found for stock ${code}: ${date}`);
+        }
+        return dateMap.get(date) || [date, null, null, null, null];
+      });
     }
     function fillFirstNull(data) {
       // Create a copy of the data to avoid modifying the original array
@@ -244,6 +302,7 @@ async function renderChartsHandler() {
             prevItem[4],
           ];
         }
+
       }
       return filledData;
     }
@@ -291,13 +350,13 @@ async function renderChartsHandler() {
     let stockName = stock.name;
     let stockPrice = stock.price;
     let chartId = `chart-0`; // Removed the '#' from the chartId
-    let chartTitle = `Stock Price History: ${stockName} (${stockCode})`;
+    let chartTitle = `Stock Price History: ${stockName} (${stockCode})[${stock.Order}]`;
     let chartData = stockPrice;
     let chart = document.getElementById(chartId); // Correctly select the chart element
-    let chartElement = renderChart(chartId, chartTitle, chartData);
+    let chartElement = await renderChart01(chartId, chartTitle, chartData);
     chartArr.push(chartElement);
 
-    function renderChart(chartId, chartTitle, chartData) {
+    function renderChart01(chartId, chartTitle, chartData) {
       const chartElement = Highcharts.stockChart(chartId, {
         chart: {
           height: chartId === 'chart-0' ? 70 : null, // Set height for chart-0
@@ -327,6 +386,7 @@ async function renderChartsHandler() {
             data: chartData,
             visible: false,
             dataGrouping: {
+              forced: true, // Force the data grouping
               units: [
                 ["day", [1]],
                 ["week", [1]],
@@ -339,9 +399,27 @@ async function renderChartsHandler() {
           enabled: false // Disable the exporting menu
         }
       });
+      // Hide the background elements
       chartElement.container.querySelector('.highcharts-background').style.display = 'none';
-
       chartElement.container.querySelector('.highcharts-plot-background').style.display = 'none';
+      // Set the number of points to show
+
+      if (chartElement && chartElement.xAxis && chartElement.xAxis[0]) {
+
+        const numberOfPointsToShow = 100;
+        const minIndex = Math.max(chartData.length - numberOfPointsToShow, 0);
+        const maxIndex = chartData.length - 1;
+        chartElement.xAxis[0].setExtremes(
+          chartData[minIndex][0],
+          chartData[maxIndex][0],
+          true,
+          false
+        );
+        console.log("setExtremes executed successfully");
+      } else {
+        console.error(`Chart element for ${chartId} is not defined or missing xAxis.`);
+      }
+
 
       return chartElement;
     }
@@ -349,17 +427,26 @@ async function renderChartsHandler() {
   async function renderCharts(stockDataList) {
     for (let i = 0; i < stockDataList.length; i++) {
       let stock = stockDataList[i];
-      let stockCode = stock.code;
-      let stockName = stock.name;
-      let stockPrice = stock.price;
       let chartId = `chart-${i + 1}`; // Removed the '#' from the chartId
-      let chartTitle = `${stockName} (${stockCode})`;
-      let chartData = stockPrice;
-      let chart = document.getElementById(chartId); // Correctly select the chart element
-      let chartElement = renderChart(chartId, chartTitle, chartData);
+      let chartTitle = `${stock.name} (${stock.code})[${stock.Order}]`;
+      let chartData = stock.price;
+      // let chart = document.getElementById(chartId); // Correctly select the chart element
+      let chartElement = await renderChart(chartId, chartTitle, chartData);
+      if (chartElement && chartElement.xAxis && chartElement.xAxis[0]) {
+        const numberOfPointsToShow = 100;
+        const minIndex = Math.max(chartData.length - numberOfPointsToShow, 0);
+        const maxIndex = chartData.length - 1;
+        chartElement.xAxis[0].setExtremes(
+          chartData[minIndex][0],
+          chartData[maxIndex][0],
+          true,
+          false
+        );
+      }
       chartArr.push(chartElement);
     }
-
+    allChartsInitialized = true;
+    //--------
     function renderChart(chartId, chartTitle, chartData) {
       const chartElement = Highcharts.stockChart(chartId, {
         rangeSelector: {
@@ -388,6 +475,7 @@ async function renderChartsHandler() {
             data: chartData,
             stickyTracking: false,
             dataGrouping: {
+              forced: true, // Force the data grouping
               units: [
                 ["day", [1]],
                 ["week", [1]],
@@ -396,9 +484,97 @@ async function renderChartsHandler() {
             },
           },
         ],
+        exporting: {
+          buttons: {
+            contextButton: {
+              menuItems: [
+                'viewFullscreen',
+                'downloadJPEG',
+                {
+                  text: '筆記',
+                  onclick: async function () {
+                    await personalNote(chartTitle);
+                  }
+                }
+              ]
+            }
+          }
+        }
       });
       return chartElement;
     }
+  }
+  async function personalNote(chartTitle) {
+    let tmp = chartTitle.match(/\((\d+)\)/);
+    let stockCode = tmp[1];
+    let tmp2 = chartTitle.match(/\[(\d+)\]/);
+    let stockOrder;
+
+
+    // Create the popup window
+    let popup = document.createElement('div');
+    popup.className = 'card';
+    popup.style.position = 'fixed';
+    popup.style.left = '50%';
+    popup.style.top = '50%';
+    popup.style.transform = 'translate(-50%, -50%)';
+    popup.style.padding = '20px';
+    popup.style.backgroundColor = 'white';
+    popup.style.zIndex = '1000';
+    popup.style.boxShadow = '0 0 5px cyan,0 0 25px cyan';
+    // popup.style.display = 'flex';
+    // popup.style.flexDirection = 'column';
+
+    // Create a title
+    let title = document.createElement('h4');
+    title.innerText = `${chartTitle}`;
+    popup.appendChild(title);
+
+    //Create Order Setting Box
+    let orderSettingBox = document.createElement('div');
+    orderSettingBox.className = 'row';
+    popup.appendChild(orderSettingBox);
+
+    // Create the input box
+    let inputGroup = document.createElement('div');
+    inputGroup.className = 'input-group input-group-sm mb-2';
+    orderSettingBox.appendChild(inputGroup);
+
+    let inputBoxOrderSetting = document.createElement('input');
+    inputBoxOrderSetting.className = 'form-control';
+    inputBoxOrderSetting.id = 'orderSetting';
+    inputBoxOrderSetting.type = 'number';
+    inputBoxOrderSetting.placeholder = "enter to order";
+    inputGroup.appendChild(inputBoxOrderSetting);
+
+    // Create the submit button
+    let submitButton = document.createElement('button');
+    submitButton.className = 'btn btn-outline-secondary';
+    submitButton.id = "submitOrderSetting";
+    submitButton.innerText = 'Submit';
+    submitButton.onclick = async function () {
+      await submitOrderSettingHandler(stockCode);
+      let note = inputBoxOrderSetting.value;
+      console.log(`Note for stock ${stockCode}: ${note}`);
+      document.body.removeChild(popup);
+    };
+    inputGroup.appendChild(submitButton);
+
+    // create button row
+    let buttonRow = document.createElement('div');
+    buttonRow.className = 'd-flex justify-content-between';
+    popup.appendChild(buttonRow);
+
+    // Create the cancel button
+    let cancelButton = document.createElement('button');
+    cancelButton.innerText = 'Cancel';
+    cancelButton.onclick = function () {
+      document.body.removeChild(popup);
+    };
+    buttonRow.appendChild(cancelButton);
+
+    // Append the popup to the body
+    document.body.appendChild(popup);
   }
   async function chartsSync(chartArr) {
     for (let i = 0; i < chartArr.length; i++) {
@@ -412,6 +588,38 @@ async function renderChartsHandler() {
       syncTooltip(chart.container, newChartArr);
     }
   }
+
+  async function submitOrderSettingHandler(stockCode) {
+    let className = document.querySelector('#class-selection').value;
+    let classData = classListObj[className];
+    let stockData = classData.filter((item) => item.code == stockCode);
+    stockData = stockData[0];
+    let orderSetting = document.querySelector('#orderSetting').value;
+    stockData.order = orderSetting;
+    //-------------
+    let index = classData.findIndex((item) => item.code == stockCode);
+    classData[index] = stockData;
+    classListObj[className] = classData;
+    //-------------
+    try {
+      let response = await fetch('/update-class-info', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(classListObj)
+      });
+      if (response.ok) {
+        console.log('classInfo.json updated.');
+
+      } else {
+        console.error('Failed to update classInfo.json');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+
 
 }
 Highcharts.Pointer.prototype.reset = function () {
@@ -449,15 +657,15 @@ function syncTooltip(container, charts) {
       chart = charts[i];
       event = chart.pointer.normalize(e);
       // Find the closest point in the series based on the x-axis value (date)
-      console.log("chart.renderTo.id", chart.renderTo.id);
+      // console.log("chart.renderTo.id", chart.renderTo.id);
       var point = chart.series[0].points.reduce((closest, p) => {
         return Math.abs(p.x - xAxisValue) <
           Math.abs(closest.x - xAxisValue)
           ? p
           : closest;
       }, chart.series[0].points[0]);
-      console.log("point", Boolean(point));
-      console.log("point value", Math.abs(point.x - xAxisValue) < (24 * 3600 * 1000));
+      // console.log("point", Boolean(point));
+      // console.log("point value", Math.abs(point.x - xAxisValue) < (24 * 3600 * 1000));
       // if (point && Math.abs(point.x - xAxisValue) < 24 * 3600 * 1000) {
       if (point && Math.abs(point.x - xAxisValue)) {
         // Ensure the point is within the same day
@@ -482,9 +690,14 @@ function displayError(message) {
   if (warningDiv && warningMessage) {
     warningMessage.innerText = message;
     warningDiv.hidden = false;
+    warningDiv.style.padding = '0.1rem 1rem';
+    warningDiv.style.fontSize = 'small';
+    const closeBtn = document.querySelector('.alert-dismissible .btn-close');
+    closeBtn.style.padding = '0.25rem';
   } else {
     console.error('Element with ID "warning" or "warning-message" not found.');
   }
+
 }
 
 function hideError() {

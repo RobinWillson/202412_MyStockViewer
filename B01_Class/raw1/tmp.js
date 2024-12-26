@@ -1,23 +1,50 @@
-const fs = require('fs').promises;
-async function main() {
-  let file1 = './20241210a_產業分類_楊雲翔.json';
-  let file2 = './20241210_產業分類_楊雲翔.json';
-  // return;
-  let data0 = await fs.readFile(file1, 'utf8');
-  let jsonData = JSON.parse(data0);
-  let renamedData = {};
-  for (let key in jsonData) {
-    if (RegExp('\\b' + "raw1_" + '\\b').test(key)) {
-      console.log('raw2 key:', key);
-      continue;
-    }
-    // --- do something here
+let classList = [
+  {
+    "code": 1560,
+    "name": "中砂",
+    "order": 9
+  },
+  {
+    "code": 2303,
+    "name": "聯電",
+    "order": 9
+  },
+  {
+    "code": 2330,
+    "name": "台積電",
+    "order": "1"
+  },
+  {
+    "code": 2342,
+    "name": "茂矽",
+    "order": 9
+  },
+  {
+    "code": 4991,
+    "name": "環宇-KY",
+    "order": 9
+  },
+  {
+    "code": 5347,
+    "name": "世界",
 
-    // ---------------------
+  },
+  {
+    "code": 8028,
+    "name": "昇陽半導體",
+    "order": "2"
   }
-  console.log(renamedData);
-  await fs.writeFile(file2, JSON.stringify(renamedData, null, 2), 'utf8');
-}
+];
 
+classList.forEach((item) => {
+  if (!item.hasOwnProperty('order')) {
+    item.order = 9;
+  } else {
+    item.order = parseInt(item.order);
+  }
+  console.log(item.code, item.name, item.order);
+});
 
-main();
+classList.sort((a, b) => {
+  return a.order - b.order;
+});
