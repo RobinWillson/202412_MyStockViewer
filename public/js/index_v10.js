@@ -104,7 +104,7 @@ async function renderChartsHandler() {
   chartArr = [];
 
   // render charts
-  await renderChart0(stockDataList);
+  // await renderChart0(stockDataList);
   await renderCharts(stockDataList);
   await chartsSync(chartArr);
   console.log("chart Render Done");
@@ -426,6 +426,7 @@ async function renderChartsHandler() {
   }
   async function renderCharts(stockDataList) {
     for (let i = 0; i < stockDataList.length; i++) {
+      if (i > 14) { return; }
       let stock = stockDataList[i];
       let chartId = `chart-${i + 1}`; // Removed the '#' from the chartId
       let chartTitle = `${stock.name} (${stock.code})[${stock.Order}]`;
@@ -447,7 +448,11 @@ async function renderChartsHandler() {
     }
     //--------
     function renderChart(chartId, chartTitle, chartData) {
+      const movingAverageData = calculateMovingAverage(chartData, 60);
       const chartElement = Highcharts.stockChart(chartId, {
+        chart: {
+          marginRight: 80 // Add space to the right of the chart
+        },
         rangeSelector: {
           selected: 1,
           enabled: false, // Disable the range selector for this chart
@@ -467,6 +472,16 @@ async function renderChartsHandler() {
           },
           min: chartData[0][0],
           max: chartData[chartData.length - 1][0],
+          maxPadding: 0.1,
+
+        },
+        yAxis: {
+          labels: {
+            x: 30 // Shift labels 10 pixels to the right
+          }
+        },
+        tooltip: {
+          enabled: false // Disable the tooltip
         },
         series: [
           {
@@ -481,6 +496,14 @@ async function renderChartsHandler() {
                 ["month", [1, 2, 3, 4, 6]],
               ],
             },
+          },
+          {
+            type: "line",
+            name: "60-day Moving Average",
+            data: movingAverageData,
+            color: "grey",
+            visible: true,
+            enableMouseTracking: false
           },
         ],
         exporting: {
@@ -633,9 +656,14 @@ function syncExtremes(e) {
     Highcharts.charts.forEach(function (chart) {
       if (chart !== thisChart) {
         if (chart.xAxis[0].setExtremes) {
-          chart.xAxis[0].setExtremes(e.min, e.max, undefined, false, {
-            trigger: "syncExtremes",
-          });
+          chart.xAxis[0].setExtremes(
+            e.min,
+            e.max,
+            undefined,
+            false,
+            {
+              trigger: "syncExtremes",
+            });
         }
       }
     });
@@ -691,6 +719,23 @@ async function clearCharts() {
     }
   });
   Highcharts.charts.length = 0;
+}
+
+function calculateMovingAverage(data, days) {
+  let movingAverage = [];
+  for (let i = 0; i < data.length; i++) {
+    if (i < days - 1) {
+      movingAverage.push([data[i][0], null]); // Not enough data points to calculate the average
+    } else {
+      let sum = 0;
+      for (let j = 0; j < days; j++) {
+        sum += data[i - j][1]; // Assuming the price is at index 1
+      }
+      let avg = sum / days;
+      movingAverage.push([data[i][0], avg]);
+    }
+  }
+  return movingAverage;
 }
 //--- Common Function
 function displayError(message) {
